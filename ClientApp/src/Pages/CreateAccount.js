@@ -31,6 +31,8 @@ export default function CreateAccount() {
       </p>
       <form onSubmit={submitForm}>
         <section className="login-section login-input">
+          <input placeholder="Full Name" />
+          <input placeholder="Zip Code" />
           <input
             onChange={e => setUserName(e.target.value)}
             placeholder="email"

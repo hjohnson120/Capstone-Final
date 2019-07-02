@@ -164,6 +164,11 @@ a:hover {
   width: 500px;
 }
 
+.zip-input {
+  width: 200px;
+  margin: 2%;
+}
+
 @media (max-width: 600px) {
   /* body {
     display: flex;

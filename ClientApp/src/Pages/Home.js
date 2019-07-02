@@ -18,7 +18,11 @@ export default function Home() {
       <div className="home-section">
         <section className="home-search">
           <h1> Search Here for opportunities in your area..</h1>
-          <input onChange={e => setZipCode(e.target.value)} placeholder="ZIP" />
+          <input
+            className="zip-input"
+            onChange={e => setZipCode(e.target.value)}
+            placeholder="ZIP"
+          />
           <button className="select-opp" onClick={search}>
             Search
           </button>
