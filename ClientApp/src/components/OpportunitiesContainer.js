@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Moment from Moment 
+import Moment from 'react-moment'
 
 class OpportunitiesContainer extends Component {
   render() {
@@ -13,7 +13,10 @@ class OpportunitiesContainer extends Component {
               <span className="school-info">{this.props.department}</span>
             </p>
             <p>
-              Date -- <span className="school-info">{this.props.date}</span>
+              Date --{' '}
+              <span className="school-info">
+                <Moment format="MM/DD/YYYY">{this.props.date}</Moment>
+              </span>
             </p>
             <p>
               Time -- <span className="school-info">{this.props.time}</span>
