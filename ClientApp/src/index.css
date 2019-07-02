@@ -116,8 +116,9 @@ input {
 }
 
 .registered-opps {
-  max-width: 400px;
+  max-width: 500px;
   margin-top: -8%;
+  justify-content: center;
 }
 
 .home-search {
@@ -126,8 +127,7 @@ input {
   box-shadow: 5px 10px 8px #888888;
   border-radius: 15px;
   background-color: #b5a89b;
-  height: 200px;
-  width: 400px;
+  width: 450px;
   margin-top: 10%;
   padding: 1%;
 }
@@ -151,14 +151,17 @@ a:hover {
   justify-content: center;
 }
 
+.school-info {
+  letter-spacing: 2px;
+}
 .nav-position {
   display: flex;
   justify-content: flex-end;
   margin-right: 3%;
   padding: 0%;
 }
-.school-thing {
-  width: 48%;
+.result-size {
+  width: 500px;
 }
 
 @media (max-width: 600px) {
@@ -168,10 +171,10 @@ a:hover {
     margin: 0%;
   } */
   .opportunity-container {
-    width: 100%;
     margin-left: 1%;
     margin-right: 1%;
-    min-width: 100%;
+    /* min-width: 100%; */
+    box-shadow: none;
   }
   header {
     width: 100%;
@@ -195,7 +198,7 @@ a:hover {
     margin-right: 0%;
     margin-top: 5%;
   }
-  .school-thing {
+  .result-size {
     width: 100%;
   }
   .nav-position {
@@ -205,5 +208,8 @@ a:hover {
 
   .nav-bar {
     padding: 0%;
+  }
+  header {
+    border-top-right-radius: 0px;
   }
 }

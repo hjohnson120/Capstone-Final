@@ -16,13 +16,8 @@ export default function Home() {
           <button className="select-opp">Search</button>
         </section>
         <section className="registered-opps">
-          <section>
-            <h2>Volunteer Opportunities You're Signed Up For : </h2>
-            <i class="fas fa-arrow-right" />
-          </section>
-          <section>
-            <OpportunitiesContainer />
-          </section>
+          <h2>Volunteer Opportunities You're Signed Up For : </h2>
+          <OpportunitiesContainer />
         </section>
       </div>
     </div>

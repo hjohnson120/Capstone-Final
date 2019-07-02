@@ -3,14 +3,37 @@ import React, { Component } from 'react'
 class OpportunitiesContainer extends Component {
   render() {
     return (
-      <div className="school-thing">
+      <div className="result-size">
         <section className="opportunity-container">
           <h2>{this.props.schoolName}</h2>
           <section className="opportunity-info">
-            <p>Department:{this.props.department}</p>
-            <p>Date:{this.props.date}</p>
-            <p>Time:{this.props.time}</p>
-            <p>School District:{this.props.schoolDistrict}</p>
+            <p>
+              Department:
+              <span className="school-info">
+                {''} {this.props.department}
+              </span>
+            </p>
+            <p>
+              Date:{' '}
+              <span className="school-info">
+                {''}
+                {this.props.date}
+              </span>
+            </p>
+            <p>
+              Time:{' '}
+              <span className="school-info">
+                {''}
+                {this.props.time}
+              </span>
+            </p>
+            <p>
+              School District:
+              <span className="school-info">
+                {''}
+                {this.props.schoolDistrict}
+              </span>
+            </p>
           </section>
           <button className="select-opp">Sign Me Up!</button>
         </section>
