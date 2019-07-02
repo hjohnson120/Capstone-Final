@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Moment from Moment 
 
 class OpportunitiesContainer extends Component {
   render() {
@@ -8,31 +9,18 @@ class OpportunitiesContainer extends Component {
           <h2>{this.props.schoolName}</h2>
           <section className="opportunity-info">
             <p>
-              Department:
-              <span className="school-info">
-                {''} {this.props.department}
-              </span>
+              Description --
+              <span className="school-info">{this.props.department}</span>
             </p>
             <p>
-              Date:{' '}
-              <span className="school-info">
-                {''}
-                {this.props.date}
-              </span>
+              Date -- <span className="school-info">{this.props.date}</span>
             </p>
             <p>
-              Time:{' '}
-              <span className="school-info">
-                {''}
-                {this.props.time}
-              </span>
+              Time -- <span className="school-info">{this.props.time}</span>
             </p>
             <p>
-              School District:
-              <span className="school-info">
-                {''}
-                {this.props.schoolDistrict}
-              </span>
+              School District --
+              <span className="school-info">{this.props.schoolDistrict}</span>
             </p>
           </section>
           <button className="select-opp">Sign Me Up!</button>

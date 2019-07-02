@@ -4,11 +4,18 @@ import OpportunitiesContainer from '../components/OpportunitiesContainer'
 import axios from 'axios'
 // import { Links } from 'react-router-dom'
 
-export default function Results() {
+export default function Results(props) {
   const [results, setResults] = useState([])
 
+  // const getZipCode = e => {
+  //   e.preventDefault()
+  //   axios.get('/VolunteerOppsController').then(resp => {
+  //     zipCode
+  //   })
+  // }
+
   useEffect(() => {
-    axios.get('/api/VolunteerOpps').then(resp => {
+    axios.get('/api/VolunteerOpps/' + props.match.params.zipCode).then(resp => {
       setResults(resp.data)
     })
   }, [])
@@ -26,6 +33,9 @@ export default function Results() {
               key={result.id}
               schoolName={result.schoolName}
               department={result.department}
+              date={result.date}
+              time={result.timeSlot}
+              schoolDistrict={result.schoolDistrict}
             />
           )
         })}
