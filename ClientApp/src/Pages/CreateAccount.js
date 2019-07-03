@@ -9,7 +9,7 @@ export default function CreateAccount() {
   const submitForm = e => {
     e.preventDefault()
     axios
-      .post('/Auth/UserController', {
+      .post('/Auth/register', {
         password,
         email: userName
       })

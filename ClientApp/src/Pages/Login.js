@@ -5,6 +5,7 @@ import NavBar from '../components/NavBar'
 
 export default function CreateLogin() {
   // const [login, getLogin] = useState('')
+
   const create = () => {
     window.location.href = '/createAccount'
   }

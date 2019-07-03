@@ -14,5 +14,7 @@ namespace Capstone_Final.Models.cs
     public DateTime Date { get; set; }
     public string SchoolDistrict { get; set; }
     public int PeopleNeeded { get; set; }
+    public string ShortDescription { get; set; }
+    public string LongDescription { get; set; }
   }
 }

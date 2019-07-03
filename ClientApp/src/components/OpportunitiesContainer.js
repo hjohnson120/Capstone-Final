@@ -1,25 +1,28 @@
 import React, { Component } from 'react'
 import Moment from 'react-moment'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGripLines } from '@fortawesome/free-solid-svg-icons'
 
 class OpportunitiesContainer extends Component {
   render() {
     return (
       <div className="result-size">
         <section className="opportunity-container">
-          <h2>{this.props.schoolName}</h2>
+          <h2 className="school-name">{this.props.schoolName}</h2>
           <section className="opportunity-info">
             <p>
               Description --
               <span className="school-info">{this.props.department}</span>
             </p>
             <p>
-              Date --{' '}
+              Date <FontAwesomeIcon icon={faGripLines} size="xs" />
               <span className="school-info">
                 <Moment format="MM/DD/YYYY">{this.props.date}</Moment>
               </span>
             </p>
             <p>
-              Time -- <span className="school-info">{this.props.time}</span>
+              Time --
+              <span className="school-info">{this.props.time}</span>
             </p>
             <p>
               School District --

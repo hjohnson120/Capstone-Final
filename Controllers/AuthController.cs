@@ -1,6 +1,8 @@
 using System.Linq;
 using System.Threading.Tasks;
 using capstone_final;
+using capstone_final.Models.cs;
+using Capstone_Final.Services;
 using Capstone_Final.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -48,7 +50,7 @@ namespace Capstone_Final.Controllers
     public async Task<ActionResult> Register([FromBody] RegisterViewModel registerInformation)
     {
       // check if the user exists
-      var exists = await _context.Users.AnyAsync(u => u.UserName == registerInformation.Email);
+      var exists = await _context.Users.AnyAsync(u => u.EMail == registerInformation.EMail);
       // if exists, return an error
       if (exists)
       {
@@ -57,8 +59,7 @@ namespace Capstone_Final.Controllers
       // else create a user
       var user = new User
       {
-        UserName = registerInformation.Email,
-        Email = registerInformation.Email,
+        EMail = registerInformation.EMail,
         FullName = registerInformation.FullName,
       };
       // hash password
