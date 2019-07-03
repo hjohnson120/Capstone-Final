@@ -1,9 +1,21 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import NavBar from '../components/NavBar'
 import OpportunitiesContainer from '../components/OpportunitiesContainer'
+import axios from 'axios'
 
 export default function Home() {
   const [zipCode, setZipCode] = useState('')
+  const [results, setResults] = useState([])
+
+  useEffect(() => {
+    axios
+      .get('/api/RegisteredOpps/', {
+        headers: { Authorization: 'Bearer ' + localStorage.getItem('token') }
+      })
+      .then(resp => {
+        setResults(resp.data)
+      })
+  }, [])
 
   const search = () => {
     window.location.href = `/results/${zipCode}`
@@ -29,7 +41,21 @@ export default function Home() {
         </section>
         <section className="registered-opps">
           <h2>Volunteer Opportunities You're Signed Up For : </h2>
-          <OpportunitiesContainer />
+          <section>
+            {results.map(result => {
+              return (
+                <OpportunitiesContainer
+                  key={result.id}
+                  id={result.id}
+                  schoolName={result.schoolName}
+                  department={result.department}
+                  date={result.date}
+                  time={result.timeSlot}
+                  schoolDistrict={result.schoolDistrict}
+                />
+              )
+            })}
+          </section>
         </section>
       </div>
     </div>

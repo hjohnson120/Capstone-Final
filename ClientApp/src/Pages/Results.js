@@ -7,13 +7,6 @@ import axios from 'axios'
 export default function Results(props) {
   const [results, setResults] = useState([])
 
-  // const getZipCode = e => {
-  //   e.preventDefault()
-  //   axios.get('/VolunteerOppsController').then(resp => {
-  //     zipCode
-  //   })
-  // }
-
   useEffect(() => {
     axios.get('/api/VolunteerOpps/' + props.match.params.zipCode).then(resp => {
       setResults(resp.data)
@@ -31,6 +24,7 @@ export default function Results(props) {
           return (
             <OpportunitiesContainer
               key={result.id}
+              id={result.id}
               schoolName={result.schoolName}
               department={result.department}
               date={result.date}
