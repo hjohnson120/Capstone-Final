@@ -29,7 +29,7 @@ export default function CreateLogin() {
   return (
     <div>
       <section>
-        <NavBar />
+        <p className="login-page-header" />
         <header>Do Something</header>
       </section>
       <section className="login-section">

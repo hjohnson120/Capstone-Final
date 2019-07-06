@@ -4,25 +4,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGripLines } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 
-class OpportunitiesContainer extends Component {
-  register = e => {
+class RegisteredContainer extends Component {
+  unRegister = e => {
     e.preventDefault()
     axios
-      .post(
-        '/api/RegisteredOpps',
-        {
-          volunteerOppsId: this.props.id
-        },
-        {
-          headers: {
-            Authorization: 'Bearer ' + localStorage.getItem('token')
-          }
+      .delete(`/api/RegisteredOpps/${this.props.id}`, {
+        headers: {
+          Authorization: 'Bearer ' + localStorage.getItem('token')
         }
-      )
+      })
       .then(resp => {
         console.log(resp)
+        // setResults(results => results.filter(f => f.id !== results.Id))
       })
   }
+
   render() {
     return (
       <div className="result-size">
@@ -30,23 +26,34 @@ class OpportunitiesContainer extends Component {
           <h2 className="school-name">{this.props.schoolName}</h2>
           <section className="opportunity-info">
             <p>
+              Department --
               <span className="school-info">{this.props.department}</span>
             </p>
             <p>
-              <FontAwesomeIcon icon={faGripLines} size="xs" />
+              Date <FontAwesomeIcon icon={faGripLines} size="xs" />
               <span className="school-info">
                 <Moment format="MM/DD/YYYY">{this.props.date}</Moment>
               </span>
             </p>
             <p>
+              Time --
               <span className="school-info">{this.props.time}</span>
             </p>
             <p>
+              School District --
+              <span className="school-info">{this.props.schoolDistrict}</span>
+            </p>
+            <p>
+              Brief Description --
+              <span className="school-info">{this.props.schoolDistrict}</span>
+            </p>
+            <p>
+              Description --
               <span className="school-info">{this.props.schoolDistrict}</span>
             </p>
           </section>
-          <button onClick={this.register} className="select-opp">
-            Sign Me Up!
+          <button className="select-opp" onClick={this.unRegister}>
+            Un-Register
           </button>
         </section>
       </div>
@@ -54,4 +61,4 @@ class OpportunitiesContainer extends Component {
   }
 }
 
-export default OpportunitiesContainer
+export default RegisteredContainer

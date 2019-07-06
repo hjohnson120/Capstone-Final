@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Cinzel&display=swap');
+@import url('https://fonts.googleapis.com/css?family=DM+Serif+Display&display=swap');
 
 :root {
   font: 16px / 1 sans-serif;
@@ -13,15 +14,16 @@ html {
 body {
   margin-right: 5%;
   min-height: 100%;
-  font-family: 'Cinzel', serif;
+  font-family: 'DM Serif Display', serif;
   text-align: center;
   margin-left: 5%;
+  color: #096067;
   background-color: #f9f7f6;
 }
 
 header {
   font-size: 3rem;
-  font-family: 'Cinzel', serif;
+  font-family: 'DM Serif Display', serif;
   background-color: #096067;
   margin: 0%;
   padding: 3%;
@@ -94,17 +96,20 @@ input {
   padding: 0.5%;
   border-radius: 20px;
   margin: 3%;
-  background-color: #a1c0be;
+  background-color: #a1c0be90;
   box-shadow: 5px 10px 8px #888888;
 }
 .opportunity-info {
-  text-align: left;
+  text-align: center;
   margin-bottom: 4%;
   margin-left: 4%;
   font-size: 18px;
   margin-top: 5%;
 }
-
+.login-page-header {
+  padding: 2%;
+}
+/* 
 .school-name {
   background-color: #096067;
   color: #f9f7f6;
@@ -113,7 +118,7 @@ input {
   margin-top: 0%;
   padding-bottom: 3%;
   padding-top: 3%;
-}
+} */
 
 .opportunity-display {
   display: flex;
@@ -130,16 +135,16 @@ input {
 
 .registered-opps {
   max-width: 500px;
-  margin-top: -8%;
+  /* margin-top: %; */
   justify-content: center;
 }
 
 .home-search {
   margin-left: 2%;
   margin-right: 15%;
-  box-shadow: 5px 10px 8px #888888;
+  /* box-shadow: 5px 10px 8px #888888; */
   border-radius: 15px;
-  background-color: #b5a89b;
+  /* background-color: #b5a89b; */
   width: 450px;
   margin-top: 10%;
   padding: 1%;

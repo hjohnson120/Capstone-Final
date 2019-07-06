@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import NavBar from '../components/NavBar'
-import OpportunitiesContainer from '../components/OpportunitiesContainer'
+import RegisteredContainer from '../components/RegisteredContainer'
 import axios from 'axios'
 
 export default function Home() {
@@ -44,14 +44,14 @@ export default function Home() {
           <section>
             {results.map(result => {
               return (
-                <OpportunitiesContainer
+                <RegisteredContainer
                   key={result.id}
                   id={result.id}
-                  schoolName={result.schoolName}
-                  department={result.department}
-                  date={result.date}
-                  time={result.timeSlot}
-                  schoolDistrict={result.schoolDistrict}
+                  schoolName={result.volunteerOpps.schoolName}
+                  department={result.volunteerOpps.department}
+                  date={result.volunteerOpps.date}
+                  time={result.volunteerOpps.timeSlot}
+                  schoolDistrict={result.volunteerOpps.schoolDistrict}
                 />
               )
             })}
