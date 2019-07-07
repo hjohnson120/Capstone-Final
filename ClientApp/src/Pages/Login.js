@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-import NavBar from '../components/NavBar'
 
 export default function CreateLogin() {
   const [userName, setUserName] = useState('')
@@ -34,22 +33,39 @@ export default function CreateLogin() {
       </section>
       <section className="login-section">
         <h1>The gift of your time is priceless</h1>
-        <section class="login-input">
-          <input
-            type="email"
-            name="email"
-            onChange={e => setUserName(e.target.value)}
-            placeholder="Enter email"
-          />
-          <input
-            type="password"
-            name="password"
-            onChange={e => setPassword(e.target.value)}
-            placeholder="Password"
-          />
-          <button onClick={submitForm}>LOGIN</button>
-          <button onClick={create}>CREATE ACCOUNT</button>
-        </section>
+        <form onSubmit={submitForm}>
+          <section class="login-input">
+            <input
+              type="email"
+              name="email"
+              onChange={e => setUserName(e.target.value)}
+              placeholder="Enter email"
+            />
+            <input
+              type="password"
+              name="password"
+              onChange={e => setPassword(e.target.value)}
+              placeholder="Password"
+            />
+            <section className="login-create-buttons">
+              <Link className="create-link" onClick={submitForm}>
+                LOGIN
+              </Link>
+            </section>
+          </section>
+        </form>
+        <p>
+          <p>
+            Don't have an account?{' '}
+            <Link className="create-link" onClick={create}>
+              Create Account
+            </Link>
+          </p>
+          School Representative?{' '}
+          <Link className="create-link" to="/SchoolRepCreate">
+            Go Here
+          </Link>
+        </p>
       </section>
     </div>
   )

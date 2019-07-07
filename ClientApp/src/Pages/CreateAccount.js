@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import NavBar from '../components/NavBar'
 import axios from 'axios'
 export default function CreateAccount() {
   const [userName, setUserName] = useState('')
@@ -23,8 +22,10 @@ export default function CreateAccount() {
 
   return (
     <div>
-      <NavBar />
-      <h1>Create An Account</h1>
+      <section>
+        <p className="login-page-header" />
+        <h1>Create An Account</h1>
+      </section>
       <p>
         Having an account allows you to access volunteer opportunities quicker
         and easier!

@@ -33,7 +33,6 @@ class OpportunitiesContainer extends Component {
               <span className="school-info">{this.props.department}</span>
             </p>
             <p>
-              <FontAwesomeIcon icon={faGripLines} size="xs" />
               <span className="school-info">
                 <Moment format="MM/DD/YYYY">{this.props.date}</Moment>
               </span>

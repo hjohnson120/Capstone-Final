@@ -26,29 +26,23 @@ class RegisteredContainer extends Component {
           <h2 className="school-name">{this.props.schoolName}</h2>
           <section className="opportunity-info">
             <p>
-              Department --
               <span className="school-info">{this.props.department}</span>
             </p>
             <p>
-              Date <FontAwesomeIcon icon={faGripLines} size="xs" />
               <span className="school-info">
                 <Moment format="MM/DD/YYYY">{this.props.date}</Moment>
               </span>
             </p>
             <p>
-              Time --
               <span className="school-info">{this.props.time}</span>
             </p>
             <p>
-              School District --
               <span className="school-info">{this.props.schoolDistrict}</span>
             </p>
             <p>
-              Brief Description --
               <span className="school-info">{this.props.schoolDistrict}</span>
             </p>
             <p>
-              Description --
               <span className="school-info">{this.props.schoolDistrict}</span>
             </p>
           </section>
