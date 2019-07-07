@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Moment from 'react-moment'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGripLines } from '@fortawesome/free-solid-svg-icons'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faGripLines } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 
 class RegisteredContainer extends Component {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import NavBar from '../components/NavBar'
+import SchoolRepNavBar from '../components/SchoolRepNavBar'
 import RegisteredContainer from '../components/RegisteredContainer'
 import axios from 'axios'
 
@@ -45,7 +45,7 @@ export default function Home() {
   return (
     <div>
       <section>
-        <NavBar />
+        <SchoolRepNavBar />
         <header>Do Something</header>
       </section>
       <div className="home-section">
