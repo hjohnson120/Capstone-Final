@@ -25,7 +25,9 @@ namespace sdg_react_template.Controllers
     [HttpGet]
     public async Task<ActionResult<IEnumerable<VolunteerOpps>>> GetVolunteerOpp()
     {
-      return await _context.VolunteerOpp.ToListAsync();
+      var currentUser = _context.Users.FirstOrDefault(f => f.EMail == User.Identity.Name);
+
+      return await _context.VolunteerOpp.Where(w => w.UserId == currentUser.Id).ToListAsync();
     }
 
     // GET: api/VolunteerOpps/5

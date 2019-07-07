@@ -1,5 +1,6 @@
 
 using System;
+using capstone_final.Models.cs;
 
 namespace Capstone_Final.Models.cs
 {
@@ -16,5 +17,8 @@ namespace Capstone_Final.Models.cs
     public int PeopleNeeded { get; set; }
     public string ShortDescription { get; set; }
     public string LongDescription { get; set; }
+
+    public int? UserId { get; set; }
+    public User User { get; set; }
   }
 }

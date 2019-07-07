@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 import NavBar from '../components/NavBar'
 import RegisteredContainer from '../components/RegisteredContainer'
 import axios from 'axios'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSurprise } from '@fortawesome/free-solid-svg-icons'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faSurprise } from '@fortawesome/free-solid-svg-icons'
 
 export default function Home() {
   const [zipCode, setZipCode] = useState('')

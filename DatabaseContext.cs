@@ -40,6 +40,12 @@ namespace capstone_final
         optionsBuilder.UseNpgsql(conn);
       }
     }
+
+    internal object Where(Func<object, bool> p)
+    {
+      throw new NotImplementedException();
+    }
+
     public DbSet<User> Users { get; set; }
     public DbSet<VolunteerOpps> VolunteerOpp { get; set; }
 
