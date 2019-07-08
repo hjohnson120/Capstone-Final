@@ -2,10 +2,8 @@ import React, { useState, useEffect } from 'react'
 import NavBar from '../components/NavBar'
 import RegisteredContainer from '../components/RegisteredContainer'
 import axios from 'axios'
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faSurprise } from '@fortawesome/free-solid-svg-icons'
 
-export default function Home() {
+export default function Home(props) {
   const [zipCode, setZipCode] = useState('')
   const [results, setResults] = useState([])
 
@@ -25,6 +23,19 @@ export default function Home() {
     window.location.href = `/results/${zipCode}`
   }
 
+  const unRegister = e => {
+    e.preventDefault()
+    axios
+      .delete(`/api/RegisteredOpps/${props.id}`, {
+        headers: {
+          Authorization: 'Bearer ' + localStorage.getItem('token')
+        }
+      })
+      .then(resp => {
+        console.log(resp)
+        // setResults(results => results.filter(f => f.id !== results.Id))
+      })
+  }
   return (
     <div>
       <section>
@@ -58,6 +69,7 @@ export default function Home() {
                   date={result.volunteerOpps.date}
                   time={result.volunteerOpps.timeSlot}
                   schoolDistrict={result.volunteerOpps.schoolDistrict}
+                  unRegister={unRegister}
                 />
               )
             })}

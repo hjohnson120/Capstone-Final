@@ -61,6 +61,7 @@ namespace Capstone_Final.Controllers
       {
         EMail = registerInformation.EMail,
         FullName = registerInformation.FullName,
+        IsSchool = registerInformation.IsSchool
       };
       // hash password
       var hashed = new AuthService().HashPassword(user, registerInformation.Password);

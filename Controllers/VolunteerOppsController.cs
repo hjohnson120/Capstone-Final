@@ -70,8 +70,10 @@ namespace sdg_react_template.Controllers
 
     // POST: api/VolunteerOpps
     [HttpPost]
-    public async Task<ActionResult<VolunteerOpps>> PostVolunteerOpps([FromBody]VolunteerOpps volunteerOpps)
+    public async Task<ActionResult<VolunteerOpps>> PostVolunteerOpps(VolunteerOpps volunteerOpps)
     {
+      var currentUser = _context.Users.FirstOrDefault(f => f.EMail == User.Identity.Name);
+      volunteerOpps.UserId = currentUser.Id;
       _context.VolunteerOpp.Add(volunteerOpps);
       await _context.SaveChangesAsync();
 

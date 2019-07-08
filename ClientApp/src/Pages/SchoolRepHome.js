@@ -29,16 +29,25 @@ export default function Home() {
   const postOpp = e => {
     e.preventDefault()
     axios
-      .post('/api/VolunteerOpps', {
-        zipCode,
-        schoolName,
-        department,
-        date,
-        timeSlot,
-        peopleNeeded,
-        shortDescription,
-        longDescription
-      })
+      .post(
+        '/api/VolunteerOpps',
+        {
+          zipCode,
+          schoolName,
+          department,
+          date,
+          timeSlot,
+          peopleNeeded,
+          shortDescription,
+          longDescription,
+          schoolAddress
+        },
+        {
+          headers: {
+            Authorization: 'Bearer ' + localStorage.getItem('token')
+          }
+        }
+      )
       .then(resp => {
         console.log(resp.data)
       })
@@ -54,12 +63,6 @@ export default function Home() {
         <section className="rep-home-search">
           <h1> Post a volunteer opportunity</h1>
           <form onSubmit={postOpp}>
-            <input
-              className="zip-input"
-              name="zipCode"
-              onChange={e => setZipCode(e.target.value)}
-              placeholder="Zip Code"
-            />
             <input
               className="zip-input"
               name="schoolName"
@@ -87,7 +90,13 @@ export default function Home() {
             />
             <input
               className="zip-input"
-              name="timeSlot"
+              name="zipCode"
+              onChange={e => setZipCode(e.target.value)}
+              placeholder="Zip Code"
+            />
+            <input
+              className="zip-input"
+              name="schoolAddress"
               onChange={e => setSchoolAddress(e.target.value)}
               placeholder="School Address"
             />
@@ -121,14 +130,14 @@ export default function Home() {
             {results.map(result => {
               return (
                 <RegisteredContainer
-                  key={result.volunteerOpps.id}
-                  id={result.volunteerOpps.id}
-                  schoolName={result.volunteerOpps.schoolName}
-                  department={result.volunteerOpps.department}
-                  date={result.volunteerOpps.date}
-                  time={result.volunteerOpps.timeSlot}
-                  schoolDistrict={result.volunteerOpps.schoolDistrict}
-                  schoolAddress={result.volunteerOpps.schoolAddress}
+                  key={result.id}
+                  id={result.id}
+                  schoolName={result.schoolName}
+                  department={result.department}
+                  date={result.date}
+                  time={result.timeSlot}
+                  schoolDistrict={result.schoolDistrict}
+                  schoolAddress={result.schoolAddress}
                 />
               )
             })}

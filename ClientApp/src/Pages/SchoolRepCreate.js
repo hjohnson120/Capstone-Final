@@ -10,13 +10,14 @@ export default function CreateAccount() {
     axios
       .post('/Auth/register', {
         password,
-        email: userName
+        email: userName,
+        IsSchool: true
       })
       .then(resp => {
         localStorage.setItem('token', resp.data.token)
         localStorage.setItem('expires_at', resp.data.expiresAt)
         localStorage.setItem('current_user', JSON.stringify(resp.data.user))
-        window.location.href = '/home'
+        window.location.href = '/SchoolRepHome'
       })
   }
 
@@ -25,13 +26,14 @@ export default function CreateAccount() {
     axios
       .post('/Auth/login', {
         password,
-        email: userName
+        email: userName,
+        IsSchool: true
       })
       .then(resp => {
         localStorage.setItem('token', resp.data.token)
         localStorage.setItem('expires_at', resp.data.expiresAt)
         localStorage.setItem('current_user', JSON.stringify(resp.data.user))
-        window.location.href = '/home'
+        window.location.href = '/SchoolRepHome'
       })
   }
   return (

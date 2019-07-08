@@ -7,5 +7,6 @@ namespace capstone_final.Models.cs
     public string EMail { get; set; }
     public string PasswordHash { get; set; }
     public string ZipCode { get; set; }
+    public bool IsSchool { get; set; }
   }
 }

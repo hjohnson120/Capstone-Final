@@ -6,5 +6,6 @@ namespace Capstone_Final.ViewModels
     public int ZipCode { get; set; }
     public string EMail { get; set; }
     public string Password { get; set; }
+    public bool IsSchool { get; set; }
   }
 }
