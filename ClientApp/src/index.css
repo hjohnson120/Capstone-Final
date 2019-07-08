@@ -157,12 +157,12 @@ input {
 
 .home-search {
   margin-left: 2%;
-  margin-right: 15%;
+  margin-right: 2%;
   /* box-shadow: 5px 10px 8px #888888; */
-  border-radius: 15px;
+  border-radius: 10px;
   /* background-color: #b5a89b; */
   width: 450px;
-  margin-top: 10%;
+  margin-top: 15%;
   padding: 1%;
 }
 
@@ -188,6 +188,13 @@ a:hover {
 .school-info {
   letter-spacing: 2px;
 }
+
+.rep-home-search {
+  margin: 2%;
+  border-radius: 10px;
+  width: 450px;
+  padding: 1%;
+}
 .nav-position {
   display: flex;
   justify-content: flex-end;
@@ -200,7 +207,7 @@ a:hover {
 }
 
 .zip-input {
-  width: 200px;
+  width: 250px;
   margin: 2%;
 }
 

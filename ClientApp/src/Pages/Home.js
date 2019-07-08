@@ -15,6 +15,7 @@ export default function Home() {
         headers: { Authorization: 'Bearer ' + localStorage.getItem('token') }
       })
       .then(resp => {
+        console.log(resp.data)
         setResults(resp.data)
       })
   }, [])

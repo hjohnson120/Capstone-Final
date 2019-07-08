@@ -40,13 +40,13 @@ class RegisteredContainer extends Component {
               <span className="school-info">{this.props.schoolDistrict}</span>
             </p>
             <p>
-              <span className="school-info">{this.props.schoolDistrict}</span>
+              <span className="school-info">{this.props.shortDescription}</span>
             </p>
             <p>
-              <span className="school-info">{this.props.schoolDistrict}</span>
+              <span className="school-info">{this.props.longDescription}</span>
             </p>
           </section>
-          <button className="select-opp" onClick={this.unRegister}>
+          <button className="select-opp" onClick={this.props.unRegister}>
             Un-Register
           </button>
         </section>

@@ -9,10 +9,11 @@ export default function Home() {
   const [schoolName, setSchoolName] = useState('')
   const [department, setDepartment] = useState('')
   const [date, setDate] = useState('')
-  const [time, setTime] = useState('')
+  const [timeSlot, setTimeSlot] = useState('')
   const [peopleNeeded, setPeopleNeeded] = useState('')
   const [shortDescription, setShortDescription] = useState('')
   const [longDescription, setLongDescription] = useState('')
+  const [schoolAddress, setSchoolAddress] = useState('')
 
   useEffect(() => {
     axios
@@ -20,6 +21,7 @@ export default function Home() {
         headers: { Authorization: 'Bearer ' + localStorage.getItem('token') }
       })
       .then(resp => {
+        console.log(resp.data)
         setResults(resp.data)
       })
   }, [])
@@ -32,13 +34,13 @@ export default function Home() {
         schoolName,
         department,
         date,
-        time,
+        timeSlot,
         peopleNeeded,
         shortDescription,
         longDescription
       })
       .then(resp => {
-        console.log(resp)
+        console.log(resp.data)
       })
   }
 
@@ -49,7 +51,7 @@ export default function Home() {
         <header>Do Something</header>
       </section>
       <div className="home-section">
-        <section className="home-search">
+        <section className="rep-home-search">
           <h1> Post a volunteer opportunity</h1>
           <form onSubmit={postOpp}>
             <input
@@ -79,9 +81,15 @@ export default function Home() {
             />
             <input
               className="zip-input"
-              name="time"
-              onChange={e => setTime(e.target.value)}
-              placeholder="Time"
+              name="timeSlot"
+              onChange={e => setTimeSlot(e.target.value)}
+              placeholder="Time Slot (From-To)"
+            />
+            <input
+              className="zip-input"
+              name="timeSlot"
+              onChange={e => setSchoolAddress(e.target.value)}
+              placeholder="School Address"
             />
             <input
               className="zip-input"
@@ -120,6 +128,7 @@ export default function Home() {
                   date={result.volunteerOpps.date}
                   time={result.volunteerOpps.timeSlot}
                   schoolDistrict={result.volunteerOpps.schoolDistrict}
+                  schoolAddress={result.volunteerOpps.schoolAddress}
                 />
               )
             })}

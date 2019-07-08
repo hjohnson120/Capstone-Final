@@ -27,7 +27,7 @@ namespace sdg_react_template.Controllers
     {
       var currentUser = _context.Users.FirstOrDefault(f => f.EMail == User.Identity.Name);
 
-      return await _context.VolunteerOpp.Where(w => w.UserId == currentUser.Id).ToListAsync();
+      return await _context.VolunteerOpp.Include(i => i.User).Where(w => w.UserId == currentUser.Id).ToListAsync();
     }
 
     // GET: api/VolunteerOpps/5
@@ -70,12 +70,12 @@ namespace sdg_react_template.Controllers
 
     // POST: api/VolunteerOpps
     [HttpPost]
-    public async Task<ActionResult<VolunteerOpps>> PostVolunteerOpps(VolunteerOpps volunteerOpps)
+    public async Task<ActionResult<VolunteerOpps>> PostVolunteerOpps([FromBody]VolunteerOpps volunteerOpps)
     {
       _context.VolunteerOpp.Add(volunteerOpps);
       await _context.SaveChangesAsync();
 
-      return CreatedAtAction("GetVolunteerOpps", new { id = volunteerOpps.Id }, volunteerOpps);
+      return Ok(volunteerOpps);
     }
 
     // DELETE: api/VolunteerOpps/5
