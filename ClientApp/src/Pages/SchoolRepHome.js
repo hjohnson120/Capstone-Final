@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import SchoolRepNavBar from '../components/SchoolRepNavBar'
-import RegisteredContainer from '../components/RegisteredContainer'
+import PostedOpps from '../components/PostedOppsContainer'
 import axios from 'axios'
 
 export default function Home() {
@@ -50,6 +50,21 @@ export default function Home() {
       )
       .then(resp => {
         console.log(resp.data)
+      })
+  }
+
+  const deleteOpp = postedOpps => {
+    console.log('clicked')
+    // e.preventDefault()
+    axios
+      .delete(`/api/RegisteredOpps/${postedOpps.id}`, {
+        headers: {
+          Authorization: 'Bearer ' + localStorage.getItem('token')
+        }
+      })
+      .then(resp => {
+        console.log(resp)
+        setResults(oldResults => oldResults.filter(f => f.id !== postedOpps.id))
       })
   }
 
@@ -129,7 +144,7 @@ export default function Home() {
           <section>
             {results.map(result => {
               return (
-                <RegisteredContainer
+                <PostedOpps
                   key={result.id}
                   id={result.id}
                   schoolName={result.schoolName}
@@ -138,6 +153,7 @@ export default function Home() {
                   time={result.timeSlot}
                   schoolDistrict={result.schoolDistrict}
                   schoolAddress={result.schoolAddress}
+                  deleteOpp={deleteOpp}
                 />
               )
             })}

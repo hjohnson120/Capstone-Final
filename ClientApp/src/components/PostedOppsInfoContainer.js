@@ -1,7 +1,7 @@
 import React from 'react'
 import Moment from 'react-moment'
 
-export default function RegisteredInfo(props) {
+export default function PostedOppsInfo(props) {
   return (
     <section>
       <h2 className="school-name">{props.schoolName}</h2>

@@ -23,17 +23,20 @@ export default function Home(props) {
     window.location.href = `/results/${zipCode}`
   }
 
-  const unRegister = e => {
-    e.preventDefault()
+  const unRegister = volunteerOpps => {
+    console.log('clicked')
+    // e.preventDefault()
     axios
-      .delete(`/api/RegisteredOpps/${props.id}`, {
+      .delete(`/api/RegisteredOpps/${volunteerOpps.id}`, {
         headers: {
           Authorization: 'Bearer ' + localStorage.getItem('token')
         }
       })
       .then(resp => {
         console.log(resp)
-        // setResults(results => results.filter(f => f.id !== results.Id))
+        setResults(oldResults =>
+          oldResults.filter(f => f.id !== volunteerOpps.id)
+        )
       })
   }
   return (
@@ -69,6 +72,9 @@ export default function Home(props) {
                   date={result.volunteerOpps.date}
                   time={result.volunteerOpps.timeSlot}
                   schoolDistrict={result.volunteerOpps.schoolDistrict}
+                  shortDescription={result.volunteerOpps.shortDescription}
+                  peopleNeeded={result.volunteerOpps.peopleNeeded}
+                  longDescription={result.volunteerOpps.longDescription}
                   unRegister={unRegister}
                 />
               )

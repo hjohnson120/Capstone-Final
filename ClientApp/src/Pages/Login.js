@@ -11,6 +11,9 @@ export default function CreateLogin() {
   }
 
   const submitForm = e => {
+    // if (password == null) {
+
+    // }
     e.preventDefault()
     axios
       .post('/Auth/login', {

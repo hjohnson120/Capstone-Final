@@ -1,11 +1,11 @@
 import React from 'react'
-import RegisteredInfo from './RegisteredInfoContainer'
+import PostedOppsInfo from './PostedOppsInfoContainer'
 
-export default function Registered(props) {
+export default function PostedOpps(props) {
   return (
     <div className="result-size">
       <section className="opportunity-container">
-        <RegisteredInfo
+        <PostedOppsInfo
           id={props.id}
           schoolName={props.schoolName}
           department={props.department}
@@ -16,8 +16,8 @@ export default function Registered(props) {
           shortDescription={props.shortDescription}
           longDescription={props.longDescription}
         />
-        <button className="select-opp" onClick={() => props.unRegister(props)}>
-          Un-Register
+        <button className="select-opp" onClick={() => props.deleteOpp(props)}>
+          Delete Oppurtunity
         </button>
       </section>
     </div>
