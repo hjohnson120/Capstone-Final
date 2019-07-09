@@ -8,8 +8,22 @@
 
 html {
   height: 100%;
-  /* background-color: #649ea079; */
+  background-color: #096067;
 }
+
+.post-opp-form {
+  margin-bottom: 10%;
+  width: 425px;
+}
+.school-container {
+  margin: 2%;
+}
+
+.home-page-login {
+  margin: 0%;
+  text-align: center;
+}
+
 p {
   margin: 0%;
 }
@@ -22,6 +36,14 @@ body {
   margin-left: 17%;
   color: #096067;
   background-color: #f9f7f6;
+}
+
+.login-buttons {
+  border: 0;
+  padding: 0;
+  background: none;
+  padding: 0.25%;
+  text-decoration: underline;
 }
 
 header {
@@ -46,9 +68,8 @@ hr {
 }
 
 h1 {
-  margin-left: 2%;
-  margin-right: 2%;
   font-size: 2rem;
+  margin: 2%;
 }
 h2 {
   padding: 2%;
@@ -83,7 +104,6 @@ button {
 
 button:hover {
   color: white;
-  background-color: #096067;
 }
 
 .login-input {
@@ -127,7 +147,7 @@ input {
   box-shadow: 5px 10px 8px #888888;
 }
 .opportunity-info {
-  text-align: center;
+  text-align: left;
   margin: 2%;
   font-size: 18px;
 }
@@ -149,10 +169,10 @@ input {
 }
 
 .registered-opps {
-  max-width: 500px;
-  /* margin-top: %; */
+  width: 450px;
   justify-content: center;
   margin: 2%;
+  margin-left: 0%;
 }
 
 .home-search {
@@ -160,7 +180,6 @@ input {
   margin-right: 2%;
   /* box-shadow: 5px 10px 8px #888888; */
   border-radius: 10px;
-  /* background-color: #b5a89b; */
   width: 450px;
   margin-top: 15%;
   padding: 1%;
@@ -174,7 +193,6 @@ a:link {
 a:visited {
   color: #80aaa7;
 }
-
 a:hover {
   color: #096067;
 }
@@ -183,17 +201,18 @@ a:hover {
   width: 100%;
   display: flex;
   justify-content: center;
+  margin-top: 5%;
 }
 
 .school-info {
-  letter-spacing: 2px;
+  color: #232d2e;
 }
 
 .rep-home-search {
-  margin: 2%;
+  margin-right: 2%;
+  margin-top: 0%;
   border-radius: 10px;
   width: 450px;
-  padding: 1%;
 }
 .nav-position {
   display: flex;
@@ -201,39 +220,69 @@ a:hover {
   margin-right: 3%;
   padding: 0%;
 }
-.result-size {
-  width: 500px;
-  margin: 2%;
-}
 
 .zip-input {
   width: 250px;
   margin: 2%;
 }
 
+.post-opp:hover {
+  color: white;
+  background-color: #096067;
+}
+
+.delete-opp:hover {
+  background-color: rgba(103, 16, 9, 0.9);
+}
+
 @media (max-width: 600px) {
   .opportunity-container {
     margin-left: 1%;
     margin-right: 1%;
-    /* min-width: 100%; */
     box-shadow: none;
+    width: 99%;
   }
   header {
     width: 100%;
   }
-
-  h2 {
-    margin-top: 10%;
+  h1 {
+    margin: 0%;
+    justify-content: center;
   }
+  /* h2 {
+    width: 300px;
+  } */
 
+  html {
+    width: 100%;
+  }
+  body {
+    width: 100%;
+    justify-content: center;
+    margin: 0%;
+  }
   .home-section {
     display: block;
+    width: 100%;
+    text-align: center;
   }
   .mobile-view {
     display: flex;
     flex-wrap: wrap;
   }
 
+  .post-opp-form {
+    width: 100%;
+  }
+
+  .registered-opps {
+    text-align: center;
+    width: 100%;
+  }
+
+  .volunteer-h2 {
+    width: 370px;
+  }
   .home-search {
     height: 260px;
     width: 100%;
@@ -245,14 +294,26 @@ a:hover {
     width: 100%;
     margin: none;
   }
+
   .nav-position {
     justify-content: center;
     margin: 0%;
   }
-
+  .rep-home-search {
+    width: 200px;
+  }
   .nav-bar {
     padding: 0%;
   }
+
+  .zip-input {
+    width: 200px;
+  }
+
+  form {
+    text-align: center;
+  }
+
   header {
     border-top-right-radius: 0px;
   }

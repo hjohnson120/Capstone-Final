@@ -60,7 +60,7 @@ export default function Home(props) {
           </form>
         </section>
         <section className="registered-opps">
-          <h2>Volunteer Opportunities You're Signed Up For : </h2>
+          <h2> You're Signed Up For : </h2>
           <section>
             {results.map(result => {
               return (

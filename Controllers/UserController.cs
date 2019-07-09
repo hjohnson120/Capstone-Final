@@ -78,8 +78,31 @@ namespace sdg_react_template.Controllers
     [HttpPost]
     public async Task<ActionResult<User>> PostUser(User user)
     {
+      var exists = await _context.Users.AnyAsync(u => u.EMail == user.EMail || u.EMail == user.EMail);
+      if (exists)
+      {
+        return BadRequest(new { message = "User with the email already exists" });
+      }
       _context.Users.Add(user);
       await _context.SaveChangesAsync();
+      // if (user.IsSchool)
+      // {
+      //   _context.Users.Add(new School
+      //   {
+      //     UserId = user.Id
+      //   });
+      // }
+      // else
+      // {
+      //   _context.Users.Add(new User
+      //   {
+      //     Id = user.Id
+      //   });
+      // }
+      // await _context.SaveChangesAsync();
+
+      // var rv = new UserService().CreateUserData(user);
+      // return Ok(rv);
 
       return CreatedAtAction("GetUser", new { id = user.Id }, user);
     }

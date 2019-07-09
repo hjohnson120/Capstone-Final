@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
 import axios from 'axios'
 export default function CreateAccount() {
   const [userName, setUserName] = useState('')
@@ -41,8 +40,9 @@ export default function CreateAccount() {
           <input
             onChange={e => setPassword(e.target.value)}
             placeholder="password"
+            type="password"
           />
-          <button>CREATE ACCOUNT</button>
+          <button className="login-buttons">CREATE ACCOUNT</button>
         </section>
       </form>
     </div>

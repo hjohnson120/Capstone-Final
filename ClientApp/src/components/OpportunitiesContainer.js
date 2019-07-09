@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import Moment from 'react-moment'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGripLines } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 
 class OpportunitiesContainer extends Component {
@@ -39,6 +37,18 @@ class OpportunitiesContainer extends Component {
             </p>
             <p>
               <span className="school-info">{this.props.time}</span>
+            </p>
+            <p>
+              <span className="school-info">{this.props.shortDescription}</span>
+            </p>
+            <p>
+              <span className="school-info">{this.props.longDescription}</span>
+            </p>
+            <p>
+              <span className="school-info">{this.props.peopleNeeded}</span>
+            </p>
+            <p>
+              <span className="school-info">{this.props.schoolAddress}</span>
             </p>
             <p>
               <span className="school-info">{this.props.schoolDistrict}</span>

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import NavBar from '../components/NavBar'
 import OpportunitiesContainer from '../components/OpportunitiesContainer'
 import axios from 'axios'
-// import { Links } from 'react-router-dom'
 
 export default function Results(props) {
   const [results, setResults] = useState([])
@@ -30,6 +29,10 @@ export default function Results(props) {
               date={result.date}
               time={result.timeSlot}
               schoolDistrict={result.schoolDistrict}
+              shortDescription={result.shortDescription}
+              longDescription={result.longDescription}
+              peopleNeeded={result.peopleNeeded}
+              schoolAddress={result.schoolAddress}
             />
           )
         })}

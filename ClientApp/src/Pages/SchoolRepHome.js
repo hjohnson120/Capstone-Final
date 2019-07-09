@@ -57,7 +57,7 @@ export default function Home() {
     console.log('clicked')
     // e.preventDefault()
     axios
-      .delete(`/api/RegisteredOpps/${postedOpps.id}`, {
+      .delete(`/api/VolunteerOpps/${postedOpps.id}`, {
         headers: {
           Authorization: 'Bearer ' + localStorage.getItem('token')
         }
@@ -74,10 +74,14 @@ export default function Home() {
         <SchoolRepNavBar />
         <header>Do Something</header>
       </section>
+      <section className="registered-opps">
+        <h1>
+          Post a volunteer <br /> opportunity
+        </h1>
+      </section>
       <div className="home-section">
         <section className="rep-home-search">
-          <h1> Post a volunteer opportunity</h1>
-          <form onSubmit={postOpp}>
+          <form className="post-opp-form" onSubmit={postOpp}>
             <input
               className="zip-input"
               name="schoolName"
@@ -133,28 +137,19 @@ export default function Home() {
               onChange={e => setLongDescription(e.target.value)}
               placeholder="Long Description"
             />
-
-            <button className="select-opp" onClick={postOpp}>
+            <br />
+            <button className="select-opp post-opp" onClick={postOpp}>
               Post Opportunity
             </button>
           </form>
         </section>
         <section className="registered-opps">
-          <h2>Volunteer Opportunities You've Posted: </h2>
+          <h2 className="volunteer-h2">Your Posts: </h2>
           <section>
             {results.map(result => {
+              console.log('parent', { result })
               return (
-                <PostedOpps
-                  key={result.id}
-                  id={result.id}
-                  schoolName={result.schoolName}
-                  department={result.department}
-                  date={result.date}
-                  time={result.timeSlot}
-                  schoolDistrict={result.schoolDistrict}
-                  schoolAddress={result.schoolAddress}
-                  deleteOpp={deleteOpp}
-                />
+                <PostedOpps key={result.id} {...result} deleteOpp={deleteOpp} />
               )
             })}
           </section>
@@ -163,3 +158,5 @@ export default function Home() {
     </div>
   )
 }
+
+// {/* Volunteer Opportunities You've Posted:{' '} */}

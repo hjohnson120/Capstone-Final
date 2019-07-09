@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
 import axios from 'axios'
 export default function CreateAccount() {
   const [userName, setUserName] = useState('')
@@ -7,6 +6,7 @@ export default function CreateAccount() {
 
   const submitForm = e => {
     e.preventDefault()
+    console.log('herer')
     axios
       .post('/Auth/register', {
         password,
@@ -17,12 +17,25 @@ export default function CreateAccount() {
         localStorage.setItem('token', resp.data.token)
         localStorage.setItem('expires_at', resp.data.expiresAt)
         localStorage.setItem('current_user', JSON.stringify(resp.data.user))
-        window.location.href = '/SchoolRepHome'
+        console.log(resp)
+        console.log(resp.data)
+        console.log(resp.data.user)
+        console.log(resp.data.user.isSchool)
+        if (resp.data.user.isSchool) {
+          window.location.href = '/SchoolRepHome'
+        } else {
+          window.location.href = '/'
+        }
       })
   }
 
   const login = e => {
     e.preventDefault()
+    // if (IsSchool) {
+    //   window.location.href = '/SchoolRepHome'
+    // } else {
+
+    // }
     axios
       .post('/Auth/login', {
         password,
@@ -33,7 +46,15 @@ export default function CreateAccount() {
         localStorage.setItem('token', resp.data.token)
         localStorage.setItem('expires_at', resp.data.expiresAt)
         localStorage.setItem('current_user', JSON.stringify(resp.data.user))
-        window.location.href = '/SchoolRepHome'
+        console.log(resp)
+        console.log(resp.data)
+        console.log(resp.data.user)
+        console.log(resp.data.user.isSchool)
+        if (resp.data.user.isSchool) {
+          window.location.href = '/SchoolRepHome'
+        } else {
+          window.location.href = '/'
+        }
       })
   }
   return (
@@ -60,15 +81,15 @@ export default function CreateAccount() {
               placeholder="password"
               type="password"
             />
-            <Link className="create-link" onClick={submitForm}>
+            <button className="create-link login-buttons" onClick={submitForm}>
               CREATE ACCOUNT
-            </Link>
+            </button>
           </section>
         </form>
         <p className="separating-text">OR</p>
 
         <form onSubmit={submitForm}>
-          <section class="login-input">
+          <section className="login-input">
             <input
               type="email"
               name="email"
@@ -82,9 +103,9 @@ export default function CreateAccount() {
               placeholder="Password"
             />
             <section className="login-create-buttons">
-              <Link className="create-link" onClick={login}>
+              <button className="create-link login-buttons" onClick={login}>
                 LOGIN
-              </Link>
+              </button>
             </section>
           </section>
         </form>

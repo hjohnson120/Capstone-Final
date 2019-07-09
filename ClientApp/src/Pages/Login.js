@@ -11,20 +11,22 @@ export default function CreateLogin() {
   }
 
   const submitForm = e => {
-    // if (password == null) {
-
-    // }
     e.preventDefault()
     axios
       .post('/Auth/login', {
         password,
-        email: userName
+        email: userName,
+        IsSchool: false
       })
       .then(resp => {
         localStorage.setItem('token', resp.data.token)
         localStorage.setItem('expires_at', resp.data.expiresAt)
         localStorage.setItem('current_user', JSON.stringify(resp.data.user))
-        window.location.href = '/home'
+        if (resp.data.user.isSchool === false) {
+          window.location.href = '/home'
+        } else {
+          window.location.href = '/SchoolRepHome'
+        }
       })
   }
 
@@ -37,7 +39,7 @@ export default function CreateLogin() {
       <section className="login-section">
         <h1>The gift of your time is priceless</h1>
         <form onSubmit={submitForm}>
-          <section class="login-input">
+          <section className="login-input">
             <input
               type="email"
               name="email"
@@ -51,24 +53,27 @@ export default function CreateLogin() {
               placeholder="Password"
             />
             <section className="login-create-buttons">
-              <Link className="create-link" onClick={submitForm}>
+              <button
+                className="create-link login-buttons"
+                onClick={submitForm}
+              >
                 LOGIN
-              </Link>
+              </button>
             </section>
           </section>
         </form>
-        <p>
-          <p>
+        <section>
+          <p className="home-page-login">
             Don't have an account?{' '}
-            <Link className="create-link" onClick={create}>
+            <button className="create-link login-buttons" onClick={create}>
               Create Account
-            </Link>
+            </button>
           </p>
           School Representative?{' '}
           <Link className="create-link" to="/SchoolRepCreate">
             Go Here
           </Link>
-        </p>
+        </section>
       </section>
     </div>
   )
