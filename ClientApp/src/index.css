@@ -143,6 +143,7 @@ input {
   padding: 0.5%;
   border-radius: 20px;
   margin: 3%;
+  width: 400px;
   background-color: #a1c0be90;
   box-shadow: 5px 10px 8px #888888;
 }
@@ -226,6 +227,10 @@ a:hover {
   margin: 2%;
 }
 
+.result-size {
+  width: 450px;
+}
+
 .post-opp:hover {
   color: white;
   background-color: #096067;
@@ -245,13 +250,11 @@ a:hover {
   header {
     width: 100%;
   }
+
   h1 {
     margin: 0%;
     justify-content: center;
   }
-  /* h2 {
-    width: 300px;
-  } */
 
   html {
     width: 100%;

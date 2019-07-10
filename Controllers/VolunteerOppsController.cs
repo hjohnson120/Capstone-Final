@@ -34,7 +34,13 @@ namespace sdg_react_template.Controllers
     [HttpGet("{zipCode}")]
     public async Task<ActionResult<List<VolunteerOpps>>> GetVolunteerOpps([FromRoute] string zipCode)
     {
-      var volunteerOpps = _context.VolunteerOpp.Where(w => w.ZipCode == zipCode);
+      var zipCodes = new List<string>();
+      var API_KEY = "99PTSNbwNZOgAo6H9vgiRtB7vOoFnTvO5GFbmc8MXJq8P9BEazBQBSi5BB0H3XUm";
+      var API = $"https://www.zipcodeapi.com/rest/{API_KEY}/radius.csv/{zipCode}/5/miles?minimal";
+      // make GET request here
+
+
+      var volunteerOpps = _context.VolunteerOpp.Where(w => zipCodes.Contains(w.ZipCode));
       return await volunteerOpps.ToListAsync();
     }
 
