@@ -21,6 +21,7 @@ class OpportunitiesContainer extends Component {
         console.log(resp)
       })
   }
+
   render() {
     return (
       <div className="result-size">
@@ -60,7 +61,7 @@ class OpportunitiesContainer extends Component {
               <span className="school-info">{this.props.schoolDistrict}</span>
             </p>
           </section>
-          <button onClick={this.register} className="select-opp">
+          <button onClick={this.register} className="select-opp search-button">
             Sign Me Up!
           </button>
         </section>

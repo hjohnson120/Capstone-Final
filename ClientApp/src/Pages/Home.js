@@ -6,6 +6,8 @@ import axios from 'axios'
 export default function Home(props) {
   const [zipCode, setZipCode] = useState('')
   const [results, setResults] = useState([])
+  const [display, setDisplay] = useState('')
+  const [name, setName] = useState('')
 
   useEffect(() => {
     axios
@@ -15,6 +17,9 @@ export default function Home(props) {
       .then(resp => {
         console.log(resp.data)
         setResults(resp.data)
+        if (resp.data.length === 0) {
+          setDisplay('No Registered Opportunities')
+        }
       })
   }, [])
 
@@ -39,12 +44,16 @@ export default function Home(props) {
         )
       })
   }
+  const user = JSON.parse(localStorage.getItem('user')) || {}
   return (
     <div>
       <section>
         <NavBar />
         <header>Do Something !</header>
       </section>
+      <h1 className="display title">
+        Welcome back {user.fullName || 'Default name'}
+      </h1>
       <div className="home-section">
         <section className="home-search">
           <h1> Search Here for opportunities in your area..</h1>
@@ -54,9 +63,10 @@ export default function Home(props) {
               onChange={e => setZipCode(e.target.value)}
               placeholder="ZIP"
             />
-            <button className="select-opp" onClick={search}>
+            <button className="select-opp search-button" onClick={search}>
               Search
             </button>
+            <p className="display">Schools within a 5 mile radius</p>
           </form>
         </section>
         <section className="registered-opps">
@@ -79,6 +89,7 @@ export default function Home(props) {
                 />
               )
             })}
+            <p className="display">{display}</p>
           </section>
         </section>
       </div>

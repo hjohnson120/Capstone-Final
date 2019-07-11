@@ -3,11 +3,13 @@ import axios from 'axios'
 export default function CreateAccount() {
   const [userName, setUserName] = useState('')
   const [password, setPassword] = useState('')
+  const [fullName, setFullName] = useState('')
 
   const submitForm = e => {
     e.preventDefault()
     axios
       .post('/Auth/register', {
+        fullName,
         password,
         email: userName
       })
@@ -31,7 +33,11 @@ export default function CreateAccount() {
       </p>
       <form onSubmit={submitForm}>
         <section className="login-section login-input">
-          <input placeholder="Full Name" />
+          <input
+            onChange={e => setFullName(e.target.value)}
+            placeholder="Full Name"
+            type="text"
+          />
           <input placeholder="Zip Code" />
           <input
             onChange={e => setUserName(e.target.value)}

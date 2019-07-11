@@ -47,16 +47,17 @@ namespace sdg_react_template.Controllers
         {
           // ... Read the string.
           string result = await content.ReadAsStringAsync();
-          string[] results = result.Split("/n");
+          var results = result.Split("\n").Skip(1).SkipLast(1);
           foreach (string resultZip in results)
+          {
             Console.WriteLine(resultZip);
+            zipCodes.Add(resultZip);
+          }
         }
 
+        var volunteerOpps = _context.VolunteerOpp.Where(w => zipCodes.Contains(w.ZipCode));
+        return await volunteerOpps.ToListAsync();
 
-        {
-          var volunteerOpps = _context.VolunteerOpp.Where(w => zipCodes.Contains(w.ZipCode));
-          return await volunteerOpps.ToListAsync();
-        }
       }
     }
 

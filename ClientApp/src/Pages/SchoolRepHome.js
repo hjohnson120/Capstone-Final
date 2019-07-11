@@ -14,6 +14,7 @@ export default function Home() {
   const [shortDescription, setShortDescription] = useState('')
   const [longDescription, setLongDescription] = useState('')
   const [schoolAddress, setSchoolAddress] = useState('')
+  const [display, setDisplay] = useState('')
 
   useEffect(() => {
     axios
@@ -23,6 +24,9 @@ export default function Home() {
       .then(resp => {
         console.log(resp.data)
         setResults(resp.data)
+        if (resp.data.length === 0) {
+          setDisplay('No Opportunities Posted')
+        }
       })
   }, [])
 
@@ -74,13 +78,16 @@ export default function Home() {
         <SchoolRepNavBar />
         <header>Do Something</header>
       </section>
-      <section className="registered-opps">
-        <h1>
-          Post a volunteer <br /> opportunity
+      <section>
+        <h1 className="display">
+          School Representative <br /> Home
         </h1>
       </section>
       <div className="home-section">
         <section className="rep-home-search">
+          <h1>
+            Post a volunteer <br /> opportunity
+          </h1>
           <form className="post-opp-form" onSubmit={postOpp}>
             <input
               className="zip-input"
@@ -152,6 +159,7 @@ export default function Home() {
                 <PostedOpps key={result.id} {...result} deleteOpp={deleteOpp} />
               )
             })}
+            <p className="display">{display}</p>
           </section>
         </section>
       </div>

@@ -3,12 +3,14 @@ import axios from 'axios'
 export default function CreateAccount() {
   const [userName, setUserName] = useState('')
   const [password, setPassword] = useState('')
+  const [fullName, setFullName] = useState('')
 
   const submitForm = e => {
     e.preventDefault()
     console.log('herer')
     axios
       .post('/Auth/register', {
+        fullName,
         password,
         email: userName,
         IsSchool: true
@@ -69,7 +71,11 @@ export default function CreateAccount() {
       <section className="login-create-page login-section ">
         <form onSubmit={submitForm}>
           <section className="login-input">
-            <input placeholder="Full Name" />
+            <input
+              onChange={e => setFullName(e.target.value)}
+              placeholder="Full Name"
+              type="text"
+            />
             <input placeholder="Zip Code" />
             <input
               onChange={e => setUserName(e.target.value)}

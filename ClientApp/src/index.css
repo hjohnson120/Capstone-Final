@@ -3,12 +3,12 @@
 
 :root {
   font: 16px / 1 sans-serif;
-  background-color: #096067;
+  background-color: #80aaa7;
 }
 
 html {
   height: 100%;
-  background-color: #096067;
+  background-color: #80aaa7;
 }
 
 .post-opp-form {
@@ -108,6 +108,10 @@ button {
   justify-content: space-evenly;
 }
 
+.search-button:hover {
+  background-color: #096067;
+}
+
 button:hover {
   color: white;
 }
@@ -175,11 +179,23 @@ input {
   margin-bottom: 0%;
 }
 
+.display {
+  color: rgba(103, 16, 9, 0.9);
+}
+
+.title {
+  margin-top: 5%;
+}
+
 .registered-opps {
   width: 450px;
   justify-content: center;
   margin: 2%;
   margin-left: 0%;
+  border-left: solid #096067 4px;
+  box-shadow: 5px 8px 8px #888888;
+  margin-top: 5%;
+  padding-bottom: 30%;
 }
 
 .home-search {
@@ -188,7 +204,7 @@ input {
   /* box-shadow: 5px 10px 8px #888888; */
   border-radius: 10px;
   width: 450px;
-  margin-top: 15%;
+  margin-top: 10%;
   padding: 1%;
 }
 
@@ -209,6 +225,7 @@ a:hover {
   display: flex;
   justify-content: center;
   margin-top: 5%;
+  padding-bottom: 5%;
 }
 
 .school-info {
