@@ -14,6 +14,7 @@ html {
 .post-opp-form {
   margin-bottom: 10%;
   width: 425px;
+  margin-left: 2%;
 }
 .school-container {
   margin: 2%;
@@ -46,7 +47,12 @@ body {
   text-decoration: underline;
 }
 
+.do-something {
+  margin-top: -20%;
+}
+
 header {
+  margin-top: 2% !important;
   font-size: 3rem;
   font-family: 'DM Serif Display', serif;
   background-color: #096067;
@@ -133,7 +139,7 @@ input {
 }
 
 .login-section {
-  margin-top: 5%;
+  margin-top: 8%;
   background-color: #a1c0be;
   box-shadow: 0 5px 10px -2px #888888;
   padding: 1%;

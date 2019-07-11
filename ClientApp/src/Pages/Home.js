@@ -43,7 +43,7 @@ export default function Home(props) {
     <div>
       <section>
         <NavBar />
-        <header>Do Something</header>
+        <header>Do Something !</header>
       </section>
       <div className="home-section">
         <section className="home-search">

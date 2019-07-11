@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Capstone_Final.Models.cs;
 using capstone_final;
+using System.Net.Http;
 
 namespace sdg_react_template.Controllers
 {
@@ -35,13 +36,28 @@ namespace sdg_react_template.Controllers
     public async Task<ActionResult<List<VolunteerOpps>>> GetVolunteerOpps([FromRoute] string zipCode)
     {
       var zipCodes = new List<string>();
-      var API_KEY = "99PTSNbwNZOgAo6H9vgiRtB7vOoFnTvO5GFbmc8MXJq8P9BEazBQBSi5BB0H3XUm";
+      var API_KEY = "d2agPQXravzyLsnJX9uY6BPNlGBG7ReJprqtYtDYdXJkdpTsd2I9R5EL6fv0re2S";
       var API = $"https://www.zipcodeapi.com/rest/{API_KEY}/radius.csv/{zipCode}/5/miles?minimal";
-      // make GET request here
+      {
+
+        // ... Use HttpClient.
+        using (HttpClient client = new HttpClient())
+        using (HttpResponseMessage response = await client.GetAsync(API))
+        using (HttpContent content = response.Content)
+        {
+          // ... Read the string.
+          string result = await content.ReadAsStringAsync();
+          string[] results = result.Split("/n");
+          foreach (string resultZip in results)
+            Console.WriteLine(resultZip);
+        }
 
 
-      var volunteerOpps = _context.VolunteerOpp.Where(w => zipCodes.Contains(w.ZipCode));
-      return await volunteerOpps.ToListAsync();
+        {
+          var volunteerOpps = _context.VolunteerOpp.Where(w => zipCodes.Contains(w.ZipCode));
+          return await volunteerOpps.ToListAsync();
+        }
+      }
     }
 
     // PUT: api/VolunteerOpps/5

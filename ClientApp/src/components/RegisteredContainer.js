@@ -16,7 +16,10 @@ export default function Registered(props) {
           shortDescription={props.shortDescription}
           longDescription={props.longDescription}
         />
-        <button className="select-opp" onClick={() => props.unRegister(props)}>
+        <button
+          className="select-opp delete-opp"
+          onClick={() => props.unRegister(props)}
+        >
           Un-Register
         </button>
       </section>

@@ -34,7 +34,7 @@ export default function CreateLogin() {
     <div>
       <section>
         <p className="login-page-header" />
-        <header>Do Something</header>
+        <header>Do Something !</header>
       </section>
       <section className="login-section">
         <h1>The gift of your time is priceless</h1>
