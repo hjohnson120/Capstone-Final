@@ -33,11 +33,6 @@ export default function CreateAccount() {
 
   const login = e => {
     e.preventDefault()
-    // if (IsSchool) {
-    //   window.location.href = '/SchoolRepHome'
-    // } else {
-
-    // }
     axios
       .post('/Auth/login', {
         password,

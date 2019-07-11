@@ -193,8 +193,9 @@ input {
   margin: 2%;
   margin-left: 0%;
   border-left: solid #096067 4px;
-  box-shadow: 5px 8px 8px #888888;
-  margin-top: 5%;
+  border-top: solid #096067 4px;
+  /* box-shadow: 5px 8px 8px #888888; */
+  /* margin-top: 5%; */
   padding-bottom: 30%;
 }
 

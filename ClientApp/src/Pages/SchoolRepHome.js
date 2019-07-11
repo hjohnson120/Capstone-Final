@@ -15,6 +15,7 @@ export default function Home() {
   const [longDescription, setLongDescription] = useState('')
   const [schoolAddress, setSchoolAddress] = useState('')
   const [display, setDisplay] = useState('')
+  const [schoolDistrict, setSchholDistrict] = useState('')
 
   useEffect(() => {
     axios
@@ -24,7 +25,7 @@ export default function Home() {
       .then(resp => {
         console.log(resp.data)
         setResults(resp.data)
-        if (resp.data.length === 0) {
+        if (resp.data == null) {
           setDisplay('No Opportunities Posted')
         }
       })
@@ -44,7 +45,8 @@ export default function Home() {
           peopleNeeded,
           shortDescription,
           longDescription,
-          schoolAddress
+          schoolAddress,
+          schoolDistrict
         },
         {
           headers: {
@@ -143,6 +145,12 @@ export default function Home() {
               name="longDescription"
               onChange={e => setLongDescription(e.target.value)}
               placeholder="Long Description"
+            />
+            <input
+              className="zip-input"
+              name="schoolDistrict"
+              onChange={e => setSchholDistrict(e.target.value)}
+              placeholder="School District"
             />
             <br />
             <button className="select-opp post-opp" onClick={postOpp}>

@@ -44,7 +44,8 @@ export default function Home(props) {
         )
       })
   }
-  const user = JSON.parse(localStorage.getItem('user')) || {}
+  const user = JSON.parse(localStorage.getItem('current_user')) || {}
+
   return (
     <div>
       <section>
