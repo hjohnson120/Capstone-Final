@@ -15,7 +15,7 @@ export default function Home() {
   const [longDescription, setLongDescription] = useState('')
   const [schoolAddress, setSchoolAddress] = useState('')
   const [display, setDisplay] = useState('')
-  const [schoolDistrict, setSchholDistrict] = useState('')
+  const [schoolDistrict, setSchoolDistrict] = useState('')
 
   useEffect(() => {
     axios
@@ -56,12 +56,22 @@ export default function Home() {
       )
       .then(resp => {
         console.log(resp.data)
+        axios
+          .get('/api/VolunteerOpps', {
+            headers: {
+              Authorization: 'Bearer ' + localStorage.getItem('token')
+            }
+          })
+          .then(resp => {
+            console.log(resp.data)
+            setResults(resp.data)
+          })
       })
+    e.target.reset()
   }
 
   const deleteOpp = postedOpps => {
     console.log('clicked')
-    // e.preventDefault()
     axios
       .delete(`/api/VolunteerOpps/${postedOpps.id}`, {
         headers: {
@@ -149,7 +159,7 @@ export default function Home() {
             <input
               className="zip-input"
               name="schoolDistrict"
-              onChange={e => setSchholDistrict(e.target.value)}
+              onChange={e => setSchoolDistrict(e.target.value)}
               placeholder="School District"
             />
             <br />

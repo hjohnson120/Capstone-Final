@@ -7,7 +7,6 @@ export default function Home(props) {
   const [zipCode, setZipCode] = useState('')
   const [results, setResults] = useState([])
   const [display, setDisplay] = useState('')
-  const [name, setName] = useState('')
 
   useEffect(() => {
     axios

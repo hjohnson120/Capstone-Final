@@ -7,9 +7,13 @@ export default function Results(props) {
   const [results, setResults] = useState([])
 
   useEffect(() => {
-    axios.get('/api/VolunteerOpps/' + props.match.params.zipCode).then(resp => {
-      setResults(resp.data)
-    })
+    axios
+      .get('/api/VolunteerOpps/' + props.match.params.zipCode, {
+        headers: { Authorization: 'Bearer ' + localStorage.getItem('token') }
+      })
+      .then(resp => {
+        setResults(resp.data)
+      })
   }, [])
 
   return (

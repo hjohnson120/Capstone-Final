@@ -54,8 +54,11 @@ namespace sdg_react_template.Controllers
             zipCodes.Add(resultZip);
           }
         }
+        // get the opps that the current user is registered 
+        var currentUser = _context.Users.FirstOrDefault(f => f.EMail == User.Identity.Name);
+        var registered = _context.RegisteredOpp.Where(w => w.UserId == currentUser.Id).Select(s => s.VolunteerOppsId);
 
-        var volunteerOpps = _context.VolunteerOpp.Where(w => zipCodes.Contains(w.ZipCode));
+        var volunteerOpps = _context.VolunteerOpp.Where(w => zipCodes.Contains(w.ZipCode) && !registered.Contains(w.Id));
         return await volunteerOpps.ToListAsync();
 
       }
