@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import SchoolRepNavBar from '../components/SchoolRepNavBar'
 import PostedOpps from '../components/PostedOppsContainer'
 import axios from 'axios'
 
@@ -25,8 +24,8 @@ export default function Home() {
       .then(resp => {
         console.log(resp.data)
         setResults(resp.data)
-        if (resp.data == null) {
-          setDisplay('No Opportunities Posted')
+        if (resp.data.length > 0) {
+          setDisplay('The Volunteer Opportunities You Have Posted')
         }
       })
   }, [])
@@ -67,7 +66,7 @@ export default function Home() {
             setResults(resp.data)
           })
       })
-    e.target.reset()
+    // e.target.reset()
   }
 
   const deleteOpp = postedOpps => {
@@ -87,19 +86,17 @@ export default function Home() {
   return (
     <div>
       <section>
-        <SchoolRepNavBar />
         <header>Do Something</header>
       </section>
       <section>
-        <h1 className="display">
-          School Representative <br /> Home
-        </h1>
+        <h1 className="display title">School Representative Home</h1>
+        <p>
+          This page allows you to post volunteer opportunities for your school
+        </p>
       </section>
       <div className="home-section">
         <section className="rep-home-search">
-          <h1>
-            Post a volunteer <br /> opportunity
-          </h1>
+          <h1>Post a volunteer opportunity for your school below</h1>
           <form className="post-opp-form" onSubmit={postOpp}>
             <input
               className="zip-input"
@@ -146,30 +143,33 @@ export default function Home() {
             />
             <input
               className="zip-input"
+              name="schoolDistrict"
+              onChange={e => setSchoolDistrict(e.target.value)}
+              placeholder="School District"
+            />
+            <input
+              className="zip-input input-description"
               name="shortDescription"
               onChange={e => setShortDescription(e.target.value)}
               placeholder="Short Description"
             />
             <input
-              className="zip-input"
+              className="zip-input input-description"
               name="longDescription"
               onChange={e => setLongDescription(e.target.value)}
               placeholder="Long Description"
             />
-            <input
-              className="zip-input"
-              name="schoolDistrict"
-              onChange={e => setSchoolDistrict(e.target.value)}
-              placeholder="School District"
-            />
+
             <br />
             <button className="select-opp post-opp" onClick={postOpp}>
-              Post Opportunity
+              POST OPPORTUNITY
             </button>
           </form>
         </section>
+        <section>
+          <h2 className="volunteer-h2 display">{display}</h2>
+        </section>
         <section className="registered-opps">
-          <h2 className="volunteer-h2">Your Posts: </h2>
           <section>
             {results.map(result => {
               console.log('parent', { result })
@@ -177,12 +177,9 @@ export default function Home() {
                 <PostedOpps key={result.id} {...result} deleteOpp={deleteOpp} />
               )
             })}
-            <p className="display">{display}</p>
           </section>
         </section>
       </div>
     </div>
   )
 }
-
-// {/* Volunteer Opportunities You've Posted:{' '} */}

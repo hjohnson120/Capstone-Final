@@ -16,9 +16,7 @@ html {
   padding: 0%;
 }
 .post-opp-form {
-  margin-bottom: 10%;
-  width: 425px;
-  margin-left: 2%;
+  margin: auto;
 }
 .school-container {
   margin: 2%;
@@ -31,6 +29,7 @@ html {
 
 p {
   margin: 0%;
+  font-size: 18px;
 }
 
 body {
@@ -51,6 +50,11 @@ body {
   text-decoration: underline;
 }
 
+::placeholder {
+  color: lightgray;
+  text-transform: uppercase;
+}
+
 .do-something {
   margin-top: -20%;
 }
@@ -59,9 +63,9 @@ header {
   margin-top: 2% !important;
   font-size: 3rem;
   font-family: 'DM Serif Display', serif;
-  background-color: #096067;
+  background-color: #0a585d;
   margin: 0%;
-  padding: 3%;
+  padding: 2%;
   color: #f9f7f6;
   width: 45%;
   padding-right: 5%;
@@ -125,8 +129,27 @@ button {
   color: #096067;
 }
 
+.rep-create-buttons {
+  width: 280px;
+  margin-top: 2%;
+  height: 40px;
+  padding: 1%;
+  background-color: #096067;
+  color: #f9f7f6;
+  letter-spacing: 2px;
+}
+
+.rep-create-buttons:hover {
+  letter-spacing: 3px;
+  background-color: #80aaa7;
+  color: #096067;
+  font-weight: bolder;
+}
+
 .login-create-page {
   display: flex;
+  margin: 3%;
+  margin-top: 5%;
   justify-content: space-evenly;
 }
 
@@ -211,7 +234,7 @@ input {
 }
 
 .title {
-  margin-top: 5%;
+  margin-top: 4%;
   font-size: 2.5rem;
 }
 
@@ -244,7 +267,7 @@ a:hover {
 
 .home-section {
   width: 100%;
-  display: flex;
+  margin: 0%;
   justify-content: center;
 }
 
@@ -254,9 +277,8 @@ a:hover {
 
 .rep-home-search {
   margin-right: 2%;
-  margin-top: 0%;
-  border-radius: 10px;
-  width: 450px;
+  margin-top: 3%;
+  width: ;
 }
 .nav-position {
   display: flex;
@@ -274,11 +296,20 @@ a:hover {
   width: 450px;
 }
 
-.post-opp:hover {
-  color: white;
-  background-color: #096067;
+.post-opp {
+  width: 40%;
+  letter-spacing: 2px;
 }
 
+.post-opp:hover {
+  color: #096067;
+  background-color: #80aaa7;
+}
+
+.input-description {
+  height: 100px;
+  width: 300px;
+}
 .search-button {
   width: 100%;
   letter-spacing: 2px;
@@ -299,6 +330,10 @@ a:hover {
 
   .login-create-page {
     display: block;
+  }
+
+  p {
+    margin: 2%;
   }
 
   header {
@@ -375,6 +410,10 @@ a:hover {
 
   form {
     text-align: center;
+  }
+
+  .post-opp {
+    width: 75%;
   }
 
   header {

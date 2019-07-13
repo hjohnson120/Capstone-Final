@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Login from './Pages/Login'
+import SignIn from './Pages/SignIn'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import CreateAccount from './Pages/CreateAccount'
 import Home from './Pages/Home'
@@ -12,7 +12,7 @@ class App extends Component {
     return (
       <Router>
         <Switch>
-          <Route path="/" exact component={Login} />
+          <Route path="/" exact component={SignIn} />
           <Route path="/CreateAccount" exact component={CreateAccount} />
           <Route path="/Home" exact component={Home} />
           <Route path="/Results/:zipCode" exact component={Results} />

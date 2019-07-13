@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 
 export default function Results(props) {
   const [results, setResults] = useState([])
+  const [display, setDisplay] = useState('')
 
   useEffect(() => {
     axios
@@ -13,6 +14,12 @@ export default function Results(props) {
       })
       .then(resp => {
         setResults(resp.data)
+        if (results.length === 0) {
+          setDisplay(
+            'No Volunteer opportunities within a 5 mile radius of this zip code.' &&
+              setResults(resp.data)
+          )
+        }
       })
   }, [])
 
@@ -24,9 +31,10 @@ export default function Results(props) {
         </header>
       </section>
       <h1 className="display">
-        Here are the volunteer opportunities within <br /> a 5 mile radius of
-        your zip code search..
+        Here are the school volunteer opportunities within <br /> a 5 mile
+        radius of your zip code search..
       </h1>
+      <hr />
       <section className="opportunity-display">
         {results.map(result => {
           return (
@@ -45,6 +53,7 @@ export default function Results(props) {
             />
           )
         })}
+        <h1>{display}</h1>
       </section>
     </main>
   )

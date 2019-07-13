@@ -29,7 +29,6 @@ export default function Home(props) {
 
   const unRegister = volunteerOpps => {
     console.log('clicked')
-    // e.preventDefault()
     axios
       .delete(`/api/RegisteredOpps/${volunteerOpps.id}`, {
         headers: {
@@ -41,6 +40,9 @@ export default function Home(props) {
         setResults(oldResults =>
           oldResults.filter(f => f.id !== volunteerOpps.id)
         )
+        if (resp.data.length === 0) {
+          setTitle('')
+        }
       })
   }
   const user = JSON.parse(localStorage.getItem('current_user')) || {}
@@ -64,7 +66,7 @@ export default function Home(props) {
               placeholder="ZIP"
             />
             <button className="select-opp" onClick={search}>
-              Search
+              SEARCH
             </button>
             <p className="display">
               Searches for schools within a 5 mile radius
