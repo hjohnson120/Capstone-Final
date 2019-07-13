@@ -62,7 +62,7 @@ class OpportunitiesContainer extends Component {
             </p>
           </section>
           <button onClick={this.register} className="select-opp search-button">
-            Sign Me Up!
+            SIGN ME UP!
           </button>
         </section>
       </div>

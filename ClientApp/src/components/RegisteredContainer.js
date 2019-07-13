@@ -20,7 +20,7 @@ export default function Registered(props) {
           className="select-opp delete-opp"
           onClick={() => props.unRegister(props)}
         >
-          Un-Register
+          UN-REGISTER
         </button>
       </section>
     </div>

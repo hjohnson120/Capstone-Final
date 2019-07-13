@@ -3,14 +3,18 @@
 
 :root {
   font: 16px / 1 sans-serif;
-  background-color: #80aaa7;
+  background-color: #f9f7f6;
 }
 
 html {
   height: 100%;
-  background-color: #80aaa7;
+  background-color: #f9f7f6;
 }
 
+.school-name {
+  margin: 0%;
+  padding: 0%;
+}
 .post-opp-form {
   margin-bottom: 10%;
   width: 425px;
@@ -30,11 +34,11 @@ p {
 }
 
 body {
-  margin-right: 17%;
+  margin-right: 4%;
   min-height: 100%;
   font-family: 'DM Serif Display', serif;
   text-align: center;
-  margin-left: 17%;
+  margin-left: 4%;
   color: #096067;
   background-color: #f9f7f6;
 }
@@ -59,11 +63,11 @@ header {
   margin: 0%;
   padding: 3%;
   color: #f9f7f6;
-  box-shadow: 0px 4px 4px -2px #888899;
   width: 45%;
-  border-top-right-radius: 15px;
+  padding-right: 5%;
+  border-top-right-radius: 130px;
   justify-content: center;
-  text-shadow: 2px 2px #888888;
+  text-align: left;
 }
 
 hr {
@@ -88,14 +92,31 @@ h2 {
 }
 
 .select-opp {
-  margin-bottom: 2%;
-  background-color: #f9f7f6;
-  border-radius: 8px;
+  height: 40px;
+  background-color: #096067;
+  color: #f9f7f6;
+}
+
+.select-opp:hover {
+  background-color: #80aaa7;
+  color: #096067;
 }
 
 .separating-text {
   margin-top: 5%;
   color: rgba(103, 16, 9, 0.9);
+}
+
+.sign-in-button {
+  width: 282px;
+  padding: 3%;
+  color: #f9f7f6;
+  background-color: #096067;
+  letter-spacing: 1px;
+}
+.sign-in-button:hover {
+  color: #096067;
+  background-color: #80aaa7;
 }
 
 button {
@@ -107,10 +128,6 @@ button {
 .login-create-page {
   display: flex;
   justify-content: space-evenly;
-}
-
-.search-button:hover {
-  background-color: #096067;
 }
 
 button:hover {
@@ -130,41 +147,43 @@ input {
   width: 280px;
   margin: 0.2%;
   font-size: 1rem;
+  padding: 1%;
 }
+
 .create-link {
-  color: #096067 !important;
+  color: rgba(103, 16, 9, 0.9) !important;
+  font-weight: bold;
   text-decoration: underline !important;
   margin-top: 0% !important;
 }
+
 .create-link:hover {
-  color: #f9f7f6 !important;
+  color: rgba(197, 27, 14, 0.9) !important;
 }
+
 .login-create-buttons {
   display: flex;
 }
 
-.login-section {
+.sign-in-section {
   margin-top: 8%;
-  background-color: #a1c0be;
-  box-shadow: 0 5px 10px -2px #888888;
   padding: 1%;
   align-content: center;
 }
+
 .opportunity-container {
-  padding: 0.5%;
-  border-radius: 20px;
+  padding: 3%;
   margin: 3%;
   width: 400px;
   background-color: #a1c0be90;
-  box-shadow: 5px 10px 8px #888888;
 }
+
 .opportunity-info {
   text-align: left;
-  margin: 2%;
+  margin: 1%;
   font-size: 18px;
-  margin-left: 5%;
 }
-.login-page-header {
+.sign-page-header {
   padding: 2%;
 }
 
@@ -173,7 +192,7 @@ input {
   flex-wrap: wrap;
   width: 100%;
   justify-content: center;
-  margin-top: 4%;
+  margin-top: 2%;
 }
 
 .selected-opps {
@@ -181,58 +200,56 @@ input {
   margin-bottom: 0%;
 }
 
+.delete-opp {
+  width: 100%;
+  letter-spacing: 1px;
+  padding: 2%;
+}
+
 .display {
-  color: rgba(103, 16, 9, 0.9);
+  color: rgba(133, 31, 24, 0.9);
 }
 
 .title {
   margin-top: 5%;
+  font-size: 2.5rem;
 }
 
 .registered-opps {
-  width: 450px;
   justify-content: center;
-  margin: 2%;
-  margin-left: 0%;
-  border-left: solid #096067 4px;
-  border-top: solid #096067 4px;
-  box-shadow: 5px 8px 8px #888888;
-  /* margin-top: 5%; */
-  padding-bottom: 30%;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .home-search {
-  margin-left: 2%;
-  margin-right: 2%;
-  /* box-shadow: 5px 10px 8px #888888; */
   border-radius: 10px;
   width: 450px;
-  margin-top: 10%;
+  margin: auto;
   padding: 1%;
 }
 
 a:link {
   text-decoration: none;
-  color: #80aaa7;
+  color: #f9f7f6;
 }
 
 a:visited {
-  color: #80aaa7;
+  color: #f9f7f6;
 }
+
 a:hover {
-  color: #096067;
+  letter-spacing: 3px;
+  color: #f9f7f6;
 }
 
 .home-section {
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: 5%;
-  padding-bottom: 5%;
 }
 
 .school-info {
-  color: #232d2e;
+  color: #2c3335;
 }
 
 .rep-home-search {
@@ -262,8 +279,14 @@ a:hover {
   background-color: #096067;
 }
 
+.search-button {
+  width: 100%;
+  letter-spacing: 2px;
+}
 .delete-opp:hover {
-  background-color: rgba(103, 16, 9, 0.9);
+  background-color: rgba(122, 20, 13, 0.9);
+  color: #f9f7f6;
+  letter-spacing: 2px;
 }
 
 @media (max-width: 600px) {

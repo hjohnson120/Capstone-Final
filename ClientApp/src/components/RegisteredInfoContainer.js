@@ -7,16 +7,26 @@ export default function RegisteredInfo(props) {
       <h2 className="school-name">{props.schoolName}</h2>
       <section className="opportunity-info">
         <p>
-          Department :<span className="school-info">{props.department}</span>
+          Department : {''}
+          <span className="school-info">
+            {''}
+            {props.department}
+          </span>
         </p>
         <p>
           Date :
           <span className="school-info">
+            {' '}
+            {''}
             <Moment format="MM/DD/YYYY">{props.date}</Moment>
           </span>
         </p>
         <p>
-          Time :<span className="school-info">{props.timeSlot}</span>
+          Time :{' '}
+          <span className="school-info">
+            {''}
+            {props.timeSlot}
+          </span>
         </p>
         <p>
           {' '}
@@ -32,7 +42,11 @@ export default function RegisteredInfo(props) {
           <span className="school-info">{props.shortDescription}</span>
         </p>
         <p>
-          Info :<span className="school-info">{props.longDescription}</span>
+          Info :
+          <span className="school-info">
+            {''}
+            {props.longDescription}
+          </span>
         </p>
       </section>
     </section>

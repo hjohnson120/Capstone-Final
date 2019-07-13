@@ -33,11 +33,12 @@ export default function CreateLogin() {
   return (
     <div>
       <section>
-        <p className="login-page-header" />
-        <header>Do Something !</header>
+        <p className="signin-page-header" />
+        <header>Do Something</header>
       </section>
-      <section className="login-section">
+      <section className="sign-in-section">
         <h1>The gift of your time is priceless</h1>
+        <p>Sign in to your account below</p>
         <form onSubmit={submitForm}>
           <section className="login-input">
             <input
@@ -53,11 +54,8 @@ export default function CreateLogin() {
               placeholder="Password"
             />
             <section className="login-create-buttons">
-              <button
-                className="create-link login-buttons"
-                onClick={submitForm}
-              >
-                LOGIN
+              <button className="sign-in-button" onClick={submitForm}>
+                SIGN IN
               </button>
             </section>
           </section>

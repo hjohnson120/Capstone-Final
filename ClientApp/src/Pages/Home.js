@@ -6,7 +6,7 @@ import axios from 'axios'
 export default function Home(props) {
   const [zipCode, setZipCode] = useState('')
   const [results, setResults] = useState([])
-  const [display, setDisplay] = useState('')
+  const [title, setTitle] = useState('')
 
   useEffect(() => {
     axios
@@ -16,8 +16,8 @@ export default function Home(props) {
       .then(resp => {
         console.log(resp.data)
         setResults(resp.data)
-        if (resp.data.length === 0) {
-          setDisplay('No Registered Opportunities')
+        if (resp.data.length > 0) {
+          setTitle('Volunteer opportunities you are signed up for:')
         }
       })
   }, [])
@@ -48,51 +48,52 @@ export default function Home(props) {
   return (
     <div>
       <section>
-        <NavBar />
-        <header>Do Something !</header>
+        <header>Do Something</header>
       </section>
       <h1 className="display title">
         Welcome back {user.fullName || 'Default name'}
       </h1>
+      <hr />
       <div className="home-section">
         <section className="home-search">
-          <h1> Search Here for opportunities in your area..</h1>
+          <h1> Search Here for volunteer opportunities in your area..</h1>
           <form onSubmit={search}>
             <input
               className="zip-input"
               onChange={e => setZipCode(e.target.value)}
               placeholder="ZIP"
             />
-            <button className="select-opp search-button" onClick={search}>
+            <button className="select-opp" onClick={search}>
               Search
             </button>
-            <p className="display">Schools within a 5 mile radius</p>
+            <p className="display">
+              Searches for schools within a 5 mile radius
+            </p>
           </form>
         </section>
-        <section className="registered-opps">
-          <h2> You're Signed Up For : </h2>
-          <section>
-            {results.map(result => {
-              return (
-                <RegisteredContainer
-                  key={result.id}
-                  id={result.id}
-                  schoolName={result.volunteerOpps.schoolName}
-                  department={result.volunteerOpps.department}
-                  date={result.volunteerOpps.date}
-                  time={result.volunteerOpps.timeSlot}
-                  schoolDistrict={result.volunteerOpps.schoolDistrict}
-                  shortDescription={result.volunteerOpps.shortDescription}
-                  peopleNeeded={result.volunteerOpps.peopleNeeded}
-                  longDescription={result.volunteerOpps.longDescription}
-                  unRegister={unRegister}
-                />
-              )
-            })}
-            <p className="display">{display}</p>
-          </section>
-        </section>
       </div>
+      <h2 className="display"> {title} </h2>
+      <section>
+        <section className="registered-opps">
+          {results.map(result => {
+            return (
+              <RegisteredContainer
+                key={result.id}
+                id={result.id}
+                schoolName={result.volunteerOpps.schoolName}
+                department={result.volunteerOpps.department}
+                date={result.volunteerOpps.date}
+                time={result.volunteerOpps.timeSlot}
+                schoolDistrict={result.volunteerOpps.schoolDistrict}
+                shortDescription={result.volunteerOpps.shortDescription}
+                peopleNeeded={result.volunteerOpps.peopleNeeded}
+                longDescription={result.volunteerOpps.longDescription}
+                unRegister={unRegister}
+              />
+            )
+          })}
+        </section>
+      </section>
     </div>
   )
 }

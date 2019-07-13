@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import NavBar from '../components/NavBar'
 import OpportunitiesContainer from '../components/OpportunitiesContainer'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 export default function Results(props) {
   const [results, setResults] = useState([])
@@ -19,9 +19,14 @@ export default function Results(props) {
   return (
     <main>
       <section>
-        <NavBar />
-        <header>Do Something!</header>
+        <header>
+          <Link to="../Home">Do Something</Link>
+        </header>
       </section>
+      <h1 className="display">
+        Here are the volunteer opportunities within <br /> a 5 mile radius of
+        your zip code search..
+      </h1>
       <section className="opportunity-display">
         {results.map(result => {
           return (
