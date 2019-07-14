@@ -59,9 +59,7 @@ export default function CreateAccount() {
   return (
     <div>
       <section>
-        <header>
-          <Link to="../SchoolRepHome">Do Something</Link>
-        </header>
+        <header>Do Something</header>
         <p className="login-page-header" />
         <h1>School Representative</h1>
       </section>

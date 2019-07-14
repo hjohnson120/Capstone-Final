@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import NavBar from '../components/NavBar'
 import RegisteredContainer from '../components/RegisteredContainer'
 import axios from 'axios'
 
@@ -21,6 +20,11 @@ export default function Home(props) {
         }
       })
   }, [])
+
+  const signOut = () => {
+    localStorage.clear()
+    window.location.href = '/'
+  }
 
   const search = e => {
     e.preventDefault()
@@ -49,6 +53,13 @@ export default function Home(props) {
 
   return (
     <div>
+      <section>
+        <p>
+          <button className="sign-out" onClick={signOut}>
+            SIGN OUT
+          </button>
+        </p>
+      </section>
       <section>
         <header>Do Something</header>
       </section>

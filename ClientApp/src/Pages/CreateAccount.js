@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
+
 export default function CreateAccount() {
   const [userName, setUserName] = useState('')
   const [password, setPassword] = useState('')
@@ -24,6 +26,9 @@ export default function CreateAccount() {
   return (
     <div>
       <section>
+        <header>
+          <Link to="../SchoolRepHome">Do Something</Link>
+        </header>
         <p className="login-page-header" />
         <h1>Create An Account</h1>
       </section>
@@ -48,7 +53,7 @@ export default function CreateAccount() {
             placeholder="password"
             type="password"
           />
-          <button className="login-buttons">CREATE ACCOUNT</button>
+          <button className="create-account-button">CREATE ACCOUNT</button>
         </section>
       </form>
     </div>

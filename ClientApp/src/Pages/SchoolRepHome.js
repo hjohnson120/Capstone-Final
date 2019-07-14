@@ -69,6 +69,11 @@ export default function Home() {
     // e.target.reset()
   }
 
+  const signOut = () => {
+    localStorage.clear()
+    window.location.href = '/'
+  }
+
   const deleteOpp = postedOpps => {
     console.log('clicked')
     axios
@@ -85,6 +90,13 @@ export default function Home() {
 
   return (
     <div>
+      <section>
+        <p>
+          <button className="sign-out" onClick={signOut}>
+            SIGN OUT
+          </button>
+        </p>
+      </section>
       <section>
         <header>Do Something</header>
       </section>

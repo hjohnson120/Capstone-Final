@@ -11,9 +11,33 @@ html {
   background-color: #f9f7f6;
 }
 
+.sign-out {
+  border: none;
+  color: #096067;
+  background-color: #f9f7f6;
+  float: right;
+}
+
+.sign-out:hover {
+  color: rgba(103, 16, 9, 0.9);
+}
+
+.create-account-button {
+  width: 282px;
+  padding: 1%;
+  color: #f9f7f6;
+  background-color: #096067;
+  letter-spacing: 1px;
+}
+.create-account-button:hover {
+  color: #096067;
+  background-color: #80aaa7;
+}
+
 .school-name {
   margin: 0%;
   padding: 0%;
+  text-align: left;
 }
 .post-opp-form {
   margin: auto;
@@ -171,6 +195,7 @@ input {
   margin: 0.2%;
   font-size: 1rem;
   padding: 1%;
+  -webkit-appearance: listbox;
 }
 
 .create-link {
