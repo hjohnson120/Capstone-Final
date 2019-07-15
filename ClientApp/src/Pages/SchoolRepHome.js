@@ -17,6 +17,14 @@ export default function Home() {
   const [schoolDistrict, setSchoolDistrict] = useState('')
 
   useEffect(() => {
+    if (results.length === 0) {
+      setDisplay('')
+    } else {
+      setDisplay('The Volunteer Opportunities You Have Posted')
+    }
+  }, [results])
+
+  useEffect(() => {
     axios
       .get('/api/VolunteerOpps', {
         headers: { Authorization: 'Bearer ' + localStorage.getItem('token') }
@@ -24,9 +32,6 @@ export default function Home() {
       .then(resp => {
         console.log(resp.data)
         setResults(resp.data)
-        if (resp.data.length > 0) {
-          setDisplay('The Volunteer Opportunities You Have Posted')
-        }
       })
   }, [])
 
@@ -64,6 +69,8 @@ export default function Home() {
           .then(resp => {
             console.log(resp.data)
             setResults(resp.data)
+            setSchoolName('')
+            setDate('')
           })
       })
   }
@@ -75,9 +82,7 @@ export default function Home() {
 
   // useEffect(() => {
 
-  //   setSchoolName(''),
-  //   setDate(''),
-  // }, [postOpp()])
+  // }, [postOpp])
 
   const deleteOpp = postedOpps => {
     console.log('clicked')
@@ -118,7 +123,7 @@ export default function Home() {
             <input
               className="zip-input"
               name="schoolName"
-              value="schoolName"
+              value={schoolName}
               onChange={e => setSchoolName(e.target.value)}
               placeholder="School Name"
             />
