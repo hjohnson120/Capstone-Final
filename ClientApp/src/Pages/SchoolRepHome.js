@@ -66,13 +66,18 @@ export default function Home() {
             setResults(resp.data)
           })
       })
-    // e.target.reset()
   }
 
   const signOut = () => {
     localStorage.clear()
     window.location.href = '/'
   }
+
+  // useEffect(() => {
+
+  //   setSchoolName(''),
+  //   setDate(''),
+  // }, [postOpp()])
 
   const deleteOpp = postedOpps => {
     console.log('clicked')
@@ -113,6 +118,7 @@ export default function Home() {
             <input
               className="zip-input"
               name="schoolName"
+              value="schoolName"
               onChange={e => setSchoolName(e.target.value)}
               placeholder="School Name"
             />

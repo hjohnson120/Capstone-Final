@@ -1,27 +1,7 @@
 import React, { Component } from 'react'
 import Moment from 'react-moment'
-import axios from 'axios'
 
 class OpportunitiesContainer extends Component {
-  register = e => {
-    e.preventDefault()
-    axios
-      .post(
-        '/api/RegisteredOpps',
-        {
-          volunteerOppsId: this.props.id
-        },
-        {
-          headers: {
-            Authorization: 'Bearer ' + localStorage.getItem('token')
-          }
-        }
-      )
-      .then(resp => {
-        console.log(resp)
-      })
-  }
-
   render() {
     return (
       <div className="result-size">
@@ -61,7 +41,10 @@ class OpportunitiesContainer extends Component {
               <span className="school-info">{this.props.schoolDistrict}</span>
             </p>
           </section>
-          <button onClick={this.register} className="select-opp search-button">
+          <button
+            onClick={() => this.props.register(this.props.id)}
+            className="select-opp search-button"
+          >
             SIGN ME UP!
           </button>
         </section>

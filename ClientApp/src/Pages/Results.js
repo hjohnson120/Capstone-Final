@@ -23,6 +23,23 @@ export default function Results(props) {
       })
   }, [])
 
+  const register = oppId => {
+    axios
+      .post(
+        '/api/RegisteredOpps',
+        { volunteerOppsId: oppId },
+        {
+          headers: {
+            Authorization: 'Bearer ' + localStorage.getItem('token')
+          }
+        }
+      )
+      .then(resp => {
+        console.log(resp)
+        setResults(oldResults => oldResults.filter(f => f.id != oppId))
+      })
+  }
+
   return (
     <main>
       <section>
@@ -50,6 +67,7 @@ export default function Results(props) {
               longDescription={result.longDescription}
               peopleNeeded={result.peopleNeeded}
               schoolAddress={result.schoolAddress}
+              register={register}
             />
           )
         })}
