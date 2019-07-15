@@ -71,6 +71,14 @@ export default function Home() {
             setResults(resp.data)
             setSchoolName('')
             setDate('')
+            setDepartment('')
+            setLongDescription('')
+            setShortDescription('')
+            setPeopleNeeded('')
+            setTimeSlot('')
+            setZipCode('')
+            setSchoolAddress('')
+            setSchoolDistrict('')
           })
       })
   }
@@ -79,10 +87,6 @@ export default function Home() {
     localStorage.clear()
     window.location.href = '/'
   }
-
-  // useEffect(() => {
-
-  // }, [postOpp])
 
   const deleteOpp = postedOpps => {
     console.log('clicked')
