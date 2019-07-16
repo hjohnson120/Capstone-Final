@@ -28,7 +28,7 @@ namespace Capstone_Final.Controllers
       var user = await _context.Users.FirstOrDefaultAsync(u => u.EMail == loginInfo.EMail);
       if (user == null)
       {
-        return Unauthorized();
+        return Unauthorized(new { message = "This user doesn't exist, sign up with the link below!" });
       }
       else
       {
@@ -54,7 +54,7 @@ namespace Capstone_Final.Controllers
       // if exists, return an error
       if (exists)
       {
-        return BadRequest(new { message = "user with the email already exists" });
+        return BadRequest(new { message = "User with the email already exists" });
       }
       // else create a user
       var user = new User

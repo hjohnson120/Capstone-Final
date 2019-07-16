@@ -5,6 +5,8 @@ export default function CreateAccount() {
   const [userName, setUserName] = useState('')
   const [password, setPassword] = useState('')
   const [fullName, setFullName] = useState('')
+  const [message, setMessage] = useState('')
+  const [message2, setMessage2] = useState('')
 
   const submitForm = e => {
     e.preventDefault()
@@ -30,6 +32,9 @@ export default function CreateAccount() {
           window.location.href = '/'
         }
       })
+      .catch(error => {
+        setMessage(error.response.data.message)
+      })
   }
 
   const login = e => {
@@ -53,6 +58,9 @@ export default function CreateAccount() {
         } else {
           window.location.href = '/'
         }
+      })
+      .catch(error => {
+        setMessage2(error.response.data.message)
       })
   }
   return (
@@ -88,6 +96,7 @@ export default function CreateAccount() {
             <button className="rep-create-buttons" onClick={submitForm}>
               CREATE ACCOUNT
             </button>
+            <p className="display">{message}</p>
           </section>
         </form>
         <h2 className="separating-text">OR</h2>
@@ -106,12 +115,13 @@ export default function CreateAccount() {
               onChange={e => setPassword(e.target.value)}
               placeholder="Password"
             />
-            <section className="login-create-buttons">
-              <button className="rep-create-buttons" onClick={login}>
-                LOGIN
-              </button>
-            </section>
+            {/* <section className="login-create-buttons"> */}
+            <button className="rep-create-buttons" onClick={login}>
+              LOGIN
+            </button>
+            <p className="display">{message2}</p>
           </section>
+          {/* </section> */}
         </form>
       </section>
     </div>

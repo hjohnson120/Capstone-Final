@@ -6,6 +6,7 @@ export default function CreateAccount() {
   const [userName, setUserName] = useState('')
   const [password, setPassword] = useState('')
   const [fullName, setFullName] = useState('')
+  const [message, setMessage] = useState('')
 
   const submitForm = e => {
     e.preventDefault()
@@ -20,6 +21,9 @@ export default function CreateAccount() {
         localStorage.setItem('expires_at', resp.data.expiresAt)
         localStorage.setItem('current_user', JSON.stringify(resp.data.user))
         window.location.href = '/'
+      })
+      .catch(error => {
+        setMessage(error.response.data.message)
       })
   }
 
@@ -56,6 +60,9 @@ export default function CreateAccount() {
           <button className="create-account-button">CREATE ACCOUNT</button>
         </section>
       </form>
+      <section>
+        <p className="display">{message}</p>
+      </section>
     </div>
   )
 }

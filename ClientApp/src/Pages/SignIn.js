@@ -5,11 +5,14 @@ import { Link } from 'react-router-dom'
 export default function CreateLogin() {
   const [userName, setUserName] = useState('')
   const [password, setPassword] = useState('')
+  const [message, setMessage] = useState('')
 
+  //Send to create account page
   const create = () => {
     window.location.href = '/createAccount'
   }
 
+  //Submit sign in info
   const submitForm = e => {
     e.preventDefault()
     axios
@@ -27,6 +30,10 @@ export default function CreateLogin() {
         } else {
           window.location.href = '/SchoolRepHome'
         }
+      })
+
+      .catch(error => {
+        setMessage(error.response.data.message)
       })
   }
 
@@ -60,6 +67,9 @@ export default function CreateLogin() {
             </section>
           </section>
         </form>
+        <section>
+          <p className="display">{message}</p>
+        </section>
         <section>
           <p className="home-page-login">
             Don't have an account?{' '}

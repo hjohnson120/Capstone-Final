@@ -114,6 +114,9 @@ export default function Home() {
       <section>
         <header>Do Something</header>
       </section>
+      <section className="sign-page-header">
+        <button className="sign-out-media">SIGN OUT</button>
+      </section>
       <section>
         <h1 className="display title">School Representative Home</h1>
         <p>
@@ -127,7 +130,6 @@ export default function Home() {
             <input
               className="zip-input"
               name="schoolName"
-              value={schoolName}
               onChange={e => setSchoolName(e.target.value)}
               placeholder="School Name"
             />

@@ -83,6 +83,10 @@ body {
   margin-top: -20%;
 }
 
+.sign-out-media {
+  display: none;
+}
+
 header {
   margin-top: 2% !important;
   font-size: 3rem;
@@ -303,7 +307,6 @@ a:hover {
 .rep-home-search {
   margin-right: 2%;
   margin-top: 3%;
-  width: ;
 }
 .nav-position {
   display: flex;
@@ -363,6 +366,7 @@ a:hover {
 
   header {
     width: 100%;
+    text-align: center;
   }
 
   h1 {
@@ -386,6 +390,9 @@ a:hover {
   .mobile-view {
     display: flex;
     flex-wrap: wrap;
+  }
+  .sign-out {
+    display: none;
   }
 
   .post-opp-form {
@@ -443,5 +450,16 @@ a:hover {
 
   header {
     border-top-right-radius: 0px;
+  }
+
+  .sign-page-header {
+    text-align: center;
+  }
+  .sign-out-media {
+    border: none;
+    color: #0a585d;
+    background-color: #f9f7f6;
+    text-decoration: underline;
+    display: block;
   }
 }
