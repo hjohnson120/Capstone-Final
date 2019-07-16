@@ -132,18 +132,21 @@ export default function Home() {
             <input
               className="zip-input"
               name="schoolName"
+              value={schoolName}
               onChange={e => setSchoolName(e.target.value)}
               placeholder="School Name"
             />
             <input
               className="zip-input"
               name="department"
+              value={department}
               onChange={e => setDepartment(e.target.value)}
               placeholder="Department"
             />
             <input
               className="zip-input"
               name="date"
+              value={date}
               type="date"
               onChange={e => setDate(e.target.value)}
               placeholder="Date"
@@ -151,42 +154,49 @@ export default function Home() {
             <input
               className="zip-input"
               name="timeSlot"
+              value={timeSlot}
               onChange={e => setTimeSlot(e.target.value)}
               placeholder="Time Slot (From-To)"
             />
             <input
               className="zip-input"
               name="zipCode"
+              value={zipCode}
               onChange={e => setZipCode(e.target.value)}
               placeholder="Zip Code"
             />
             <input
               className="zip-input"
               name="schoolAddress"
+              value={schoolAddress}
               onChange={e => setSchoolAddress(e.target.value)}
               placeholder="School Address"
             />
             <input
               className="zip-input"
               name="peopleNeeded"
+              value={peopleNeeded}
               onChange={e => setPeopleNeeded(e.target.value)}
               placeholder="Number of People Needed"
             />
             <input
               className="zip-input"
               name="schoolDistrict"
+              value={schoolDistrict}
               onChange={e => setSchoolDistrict(e.target.value)}
               placeholder="School District"
             />
             <input
               className="zip-input input-description"
               name="shortDescription"
+              value={shortDescription}
               onChange={e => setShortDescription(e.target.value)}
               placeholder="Short Description"
             />
             <input
               className="zip-input input-description"
               name="longDescription"
+              value={longDescription}
               onChange={e => setLongDescription(e.target.value)}
               placeholder="Long Description"
             />
