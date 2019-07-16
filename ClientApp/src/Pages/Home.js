@@ -69,7 +69,9 @@ export default function Home(props) {
         <header>Do Something</header>
       </section>
       <section className="sign-page-header">
-        <button className="sign-out-media">SIGN OUT</button>
+        <button className="sign-out-media" onClick={signOut}>
+          SIGN OUT
+        </button>
       </section>
       <h1 className="display title">
         Welcome back {user.fullName || 'Default name'}

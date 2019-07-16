@@ -348,6 +348,10 @@ a:hover {
   letter-spacing: 2px;
 }
 
+.home-link-media {
+  display: none;
+}
+
 @media (max-width: 600px) {
   .opportunity-container {
     margin: 0%;
@@ -356,6 +360,13 @@ a:hover {
     margin-bottom: 3%;
   }
 
+  .home-link-media {
+    display: block;
+    text-decoration: underline;
+  }
+  .home-link-media:visited {
+    color: #0a585d;
+  }
   .login-create-page {
     display: block;
   }
@@ -461,5 +472,9 @@ a:hover {
     background-color: #f9f7f6;
     text-decoration: underline;
     display: block;
+  }
+
+  .school-name {
+    text-align: center;
   }
 }

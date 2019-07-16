@@ -36,8 +36,12 @@ export default function Results(props) {
       )
       .then(resp => {
         console.log(resp)
-        setResults(oldResults => oldResults.filter(f => f.id != oppId))
+        setResults(oldResults => oldResults.filter(f => f.id !== oppId))
       })
+  }
+
+  const goHome = () => {
+    window.location.href = '/home'
   }
 
   return (
@@ -46,6 +50,13 @@ export default function Results(props) {
         <header>
           <Link to="../Home">Do Something</Link>
         </header>
+        <section>
+          <p>
+            <button className="home-link-media" onClick={goHome}>
+              Home
+            </button>
+          </p>
+        </section>
       </section>
       <h1 className="display">
         Here are the school volunteer opportunities within <br /> a 5 mile
