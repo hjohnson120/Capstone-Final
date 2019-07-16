@@ -8,6 +8,12 @@ export default function Results(props) {
   const [display, setDisplay] = useState('')
 
   useEffect(() => {
+    if (results.length === 0) {
+      window.location.href = '/home'
+    }
+  }, [results])
+
+  useEffect(() => {
     axios
       .get('/api/VolunteerOpps/' + props.match.params.zipCode, {
         headers: { Authorization: 'Bearer ' + localStorage.getItem('token') }
