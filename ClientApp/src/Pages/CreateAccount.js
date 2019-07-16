@@ -10,21 +10,25 @@ export default function CreateAccount() {
 
   const submitForm = e => {
     e.preventDefault()
-    axios
-      .post('/Auth/register', {
-        fullName,
-        password,
-        email: userName
-      })
-      .then(resp => {
-        localStorage.setItem('token', resp.data.token)
-        localStorage.setItem('expires_at', resp.data.expiresAt)
-        localStorage.setItem('current_user', JSON.stringify(resp.data.user))
-        window.location.href = '/'
-      })
-      .catch(error => {
-        setMessage(error.response.data.message)
-      })
+    if (password && userName) {
+      axios
+        .post('/Auth/register', {
+          fullName,
+          password,
+          email: userName
+        })
+        .then(resp => {
+          localStorage.setItem('token', resp.data.token)
+          localStorage.setItem('expires_at', resp.data.expiresAt)
+          localStorage.setItem('current_user', JSON.stringify(resp.data.user))
+          window.location.href = '/'
+        })
+        .catch(error => {
+          setMessage(error.response.data.message)
+        })
+    } else {
+      setMessage('Please fill in ALL fields')
+    }
   }
 
   return (

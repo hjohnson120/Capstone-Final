@@ -39,29 +39,33 @@ export default function CreateAccount() {
 
   const login = e => {
     e.preventDefault()
-    axios
-      .post('/Auth/login', {
-        password,
-        email: userName,
-        IsSchool: true
-      })
-      .then(resp => {
-        localStorage.setItem('token', resp.data.token)
-        localStorage.setItem('expires_at', resp.data.expiresAt)
-        localStorage.setItem('current_user', JSON.stringify(resp.data.user))
-        console.log(resp)
-        console.log(resp.data)
-        console.log(resp.data.user)
-        console.log(resp.data.user.isSchool)
-        if (resp.data.user.isSchool) {
-          window.location.href = '/SchoolRepHome'
-        } else {
-          window.location.href = '/'
-        }
-      })
-      .catch(error => {
-        setMessage2(error.response.data.message)
-      })
+    if (password && userName) {
+      axios
+        .post('/Auth/login', {
+          password,
+          email: userName,
+          IsSchool: true
+        })
+        .then(resp => {
+          localStorage.setItem('token', resp.data.token)
+          localStorage.setItem('expires_at', resp.data.expiresAt)
+          localStorage.setItem('current_user', JSON.stringify(resp.data.user))
+          console.log(resp)
+          console.log(resp.data)
+          console.log(resp.data.user)
+          console.log(resp.data.user.isSchool)
+          if (resp.data.user.isSchool) {
+            window.location.href = '/SchoolRepHome'
+          } else {
+            window.location.href = '/'
+          }
+        })
+        .catch(error => {
+          setMessage2(error.response.data.message)
+        })
+    } else {
+      setMessage('Please fill in ALL fields')
+    }
   }
   return (
     <div>

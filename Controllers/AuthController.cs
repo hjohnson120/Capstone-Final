@@ -24,6 +24,10 @@ namespace Capstone_Final.Controllers
     [HttpPost("login")]
     public async Task<ActionResult> LoginIn([FromBody] RegisterViewModel loginInfo)
     {
+      if (loginInfo.Password == "" && loginInfo.EMail == "")
+      {
+        return BadRequest();
+      }
       // does the user exists
       var user = await _context.Users.FirstOrDefaultAsync(u => u.EMail == loginInfo.EMail);
       if (user == null)
@@ -49,6 +53,10 @@ namespace Capstone_Final.Controllers
     [HttpPost("register")]
     public async Task<ActionResult> Register([FromBody] RegisterViewModel registerInformation)
     {
+      if (registerInformation.Password == "" && registerInformation.EMail == "")
+      {
+        return BadRequest();
+      }
       // check if the user exists
       var exists = await _context.Users.AnyAsync(u => u.EMail == registerInformation.EMail);
       // if exists, return an error

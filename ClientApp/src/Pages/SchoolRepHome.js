@@ -115,7 +115,9 @@ export default function Home() {
         <header>Do Something</header>
       </section>
       <section className="sign-page-header">
-        <button className="sign-out-media">SIGN OUT</button>
+        <button className="sign-out-media" onClick={signOut}>
+          SIGN OUT
+        </button>
       </section>
       <section>
         <h1 className="display title">School Representative Home</h1>
