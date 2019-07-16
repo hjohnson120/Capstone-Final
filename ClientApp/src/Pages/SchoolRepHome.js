@@ -200,8 +200,8 @@ export default function Home() {
         <section>
           <h2 className="volunteer-h2 display">{display}</h2>
         </section>
-        <section className="registered-opps">
-          <section>
+        <section>
+          <section className="registered-opps">
             {results.map(result => {
               console.log('parent', { result })
               return (
