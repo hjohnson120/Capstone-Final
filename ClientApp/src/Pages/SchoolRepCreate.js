@@ -10,31 +10,35 @@ export default function CreateAccount() {
 
   const submitForm = e => {
     e.preventDefault()
-    console.log('herer')
-    axios
-      .post('/Auth/register', {
-        fullName,
-        password,
-        email: userName,
-        IsSchool: true
-      })
-      .then(resp => {
-        localStorage.setItem('token', resp.data.token)
-        localStorage.setItem('expires_at', resp.data.expiresAt)
-        localStorage.setItem('current_user', JSON.stringify(resp.data.user))
-        console.log(resp)
-        console.log(resp.data)
-        console.log(resp.data.user)
-        console.log(resp.data.user.isSchool)
-        if (resp.data.user.isSchool) {
-          window.location.href = '/SchoolRepHome'
-        } else {
-          window.location.href = '/'
-        }
-      })
-      .catch(error => {
-        setMessage(error.response.data.message)
-      })
+    if (password && userName) {
+      console.log('herer')
+      axios
+        .post('/Auth/register', {
+          fullName,
+          password,
+          email: userName,
+          IsSchool: true
+        })
+        .then(resp => {
+          localStorage.setItem('token', resp.data.token)
+          localStorage.setItem('expires_at', resp.data.expiresAt)
+          localStorage.setItem('current_user', JSON.stringify(resp.data.user))
+          console.log(resp)
+          console.log(resp.data)
+          console.log(resp.data.user)
+          console.log(resp.data.user.isSchool)
+          if (resp.data.user.isSchool) {
+            window.location.href = '/SchoolRepHome'
+          } else {
+            window.location.href = '/'
+          }
+        })
+        .catch(error => {
+          setMessage(error.response.data.message)
+        })
+    } else {
+      setMessage('Please fill in ALL fields')
+    }
   }
 
   const login = e => {
@@ -64,9 +68,10 @@ export default function CreateAccount() {
           setMessage2(error.response.data.message)
         })
     } else {
-      setMessage('Please fill in ALL fields')
+      setMessage2('Please fill in ALL fields')
     }
   }
+
   return (
     <div>
       <section>
