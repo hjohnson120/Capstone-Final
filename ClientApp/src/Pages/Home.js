@@ -8,6 +8,14 @@ export default function Home(props) {
   const [title, setTitle] = useState('')
 
   useEffect(() => {
+    if (results.length === 0) {
+      setTitle('')
+    } else {
+      setTitle('Volunteer opportunities you are signed up for')
+    }
+  }, [results])
+
+  useEffect(() => {
     axios
       .get('/api/RegisteredOpps/', {
         headers: { Authorization: 'Bearer ' + localStorage.getItem('token') }
@@ -15,9 +23,6 @@ export default function Home(props) {
       .then(resp => {
         console.log(resp.data)
         setResults(resp.data)
-        if (resp.data.length > 0) {
-          setTitle('Volunteer opportunities you are signed up for:')
-        }
       })
   }, [])
 
