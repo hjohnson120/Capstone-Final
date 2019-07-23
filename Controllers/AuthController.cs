@@ -28,11 +28,11 @@ namespace Capstone_Final.Controllers
       {
         return BadRequest();
       }
-      // does the user exists
+      // does the user exist
       var user = await _context.Users.FirstOrDefaultAsync(u => u.EMail == loginInfo.EMail);
       if (user == null)
       {
-        return Unauthorized(new { message = "This user doesn't exist, sign up with the link below!" });
+        return Unauthorized(new { message = "This user does not exist, please create an account" });
       }
       else
       {
@@ -45,7 +45,7 @@ namespace Capstone_Final.Controllers
         }
         else
         {
-          return Unauthorized();
+          return Unauthorized(new { message = "Password or e-mail incorrect" });
         }
       }
     }

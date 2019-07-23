@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 export default function CreateAccount() {
   const [userName, setUserName] = useState('')
@@ -75,7 +76,9 @@ export default function CreateAccount() {
   return (
     <div>
       <section>
-        <header>Do Something</header>
+        <header>
+          <Link to="../">Do Something</Link>
+        </header>
         <p className="login-page-header" />
         <h1>School Representative</h1>
       </section>

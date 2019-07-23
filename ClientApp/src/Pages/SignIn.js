@@ -15,26 +15,30 @@ export default function CreateLogin() {
   //Submit sign in info
   const submitForm = e => {
     e.preventDefault()
-    axios
-      .post('/Auth/login', {
-        password,
-        email: userName,
-        IsSchool: false
-      })
-      .then(resp => {
-        localStorage.setItem('token', resp.data.token)
-        localStorage.setItem('expires_at', resp.data.expiresAt)
-        localStorage.setItem('current_user', JSON.stringify(resp.data.user))
-        if (resp.data.user.isSchool === false) {
-          window.location.href = '/home'
-        } else {
-          window.location.href = '/SchoolRepHome'
-        }
-      })
+    if (password && userName) {
+      axios
+        .post('/Auth/login', {
+          password,
+          email: userName,
+          IsSchool: false
+        })
+        .then(resp => {
+          localStorage.setItem('token', resp.data.token)
+          localStorage.setItem('expires_at', resp.data.expiresAt)
+          localStorage.setItem('current_user', JSON.stringify(resp.data.user))
+          if (resp.data.user.isSchool === false) {
+            window.location.href = '/home'
+          } else {
+            window.location.href = '/SchoolRepHome'
+          }
+        })
 
-      .catch(error => {
-        setMessage(error.response.data.message)
-      })
+        .catch(error => {
+          setMessage(error.response.data.message)
+        })
+    } else {
+      setMessage('Please fill in ALL fields')
+    }
   }
 
   return (
@@ -68,7 +72,9 @@ export default function CreateLogin() {
           </section>
         </form>
         <section>
-          <p className="display">{message}</p>
+          <p className="display">
+            <b>{message}</b>
+          </p>
         </section>
         <section>
           <p className="home-page-login">
