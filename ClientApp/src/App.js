@@ -6,6 +6,7 @@ import Home from './Pages/Home'
 import Results from './Pages/Results'
 import SchoolRepCreate from './Pages/SchoolRepCreate'
 import SchoolRepHome from './Pages/SchoolRepHome'
+import EditOpp from './Pages/EditOpp'
 
 class App extends Component {
   render() {
@@ -18,6 +19,7 @@ class App extends Component {
           <Route path="/Results/:zipCode" exact component={Results} />
           <Route path="/SchoolRepCreate" exact component={SchoolRepCreate} />
           <Route path="/SchoolRepHome" exact component={SchoolRepHome} />
+          <Route path="/EditOpp" exact component={EditOpp} />
         </Switch>
       </Router>
     )

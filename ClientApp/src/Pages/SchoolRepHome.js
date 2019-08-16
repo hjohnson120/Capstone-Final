@@ -102,6 +102,10 @@ export default function Home() {
       })
   }
 
+  const editOpp = () => {
+    window.location.href = '/EditOpp'
+  }
+
   return (
     <div>
       <section>
@@ -215,7 +219,12 @@ export default function Home() {
             {results.map(result => {
               console.log('parent', { result })
               return (
-                <PostedOpps key={result.id} {...result} deleteOpp={deleteOpp} />
+                <PostedOpps
+                  key={result.id}
+                  {...result}
+                  deleteOpp={deleteOpp}
+                  editOpp={editOpp}
+                />
               )
             })}
           </section>

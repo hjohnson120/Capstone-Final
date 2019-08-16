@@ -13,6 +13,12 @@ export default function PostedOpps(props) {
         >
           Delete Opportunity
         </button>
+        <button
+          className="select-opp delete-opp"
+          onClick={() => props.editOpp(props)}
+        >
+          Edit Opportunity
+        </button>
       </section>
     </div>
   )
