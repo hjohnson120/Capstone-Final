@@ -19,7 +19,7 @@ class App extends Component {
           <Route path="/Results/:zipCode" exact component={Results} />
           <Route path="/SchoolRepCreate" exact component={SchoolRepCreate} />
           <Route path="/SchoolRepHome" exact component={SchoolRepHome} />
-          <Route path="/EditOpp" exact component={EditOpp} />
+          <Route path="/EditOpp/:postedOpps" exact component={EditOpp} />
         </Switch>
       </Router>
     )

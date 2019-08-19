@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react'
-import PostedOpps from '../components/PostedOppsContainer'
+import React, { useState } from 'react'
+// import PostedOpps from '../components/PostedOppsContainer'
 import axios from 'axios'
 
-export default function EditOpp() {
+export default function EditOpp(props) {
   const [results, setResults] = useState([])
   const [zipCode, setZipCode] = useState('')
   const [schoolName, setSchoolName] = useState('')
@@ -15,10 +15,22 @@ export default function EditOpp() {
   const [schoolAddress, setSchoolAddress] = useState('')
   const [schoolDistrict, setSchoolDistrict] = useState('')
 
+  const editOpp = e => {
+    e.preventDefault()
+    axios
+      .put(`/api/VolunteerOpps/${props.match.params.postedOpps.id}`, {
+        headers: { Authorization: 'Bearer ' + localStorage.getItem('token') }
+      })
+      .then(resp => {
+        console.log(resp.data)
+        setResults(resp.data)
+      })
+  }
+
   return (
     <div className="home-section">
       <section className="rep-home-search">
-        <h1>Post a volunteer opportunity for your school below</h1>
+        <h1>Update Selected Opportunity</h1>
         <form className="post-opp-form" onSubmit={editOpp}>
           <input
             className="zip-input"
@@ -91,6 +103,10 @@ export default function EditOpp() {
             onChange={e => setLongDescription(e.target.value)}
             placeholder="Long Description"
           />
+          <br />
+          <button className="select-opp post-opp" onClick={editOpp}>
+            UPDATE OPPORTUNITY
+          </button>
         </form>
       </section>
     </div>

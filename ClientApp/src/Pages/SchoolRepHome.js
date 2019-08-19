@@ -102,8 +102,8 @@ export default function Home() {
       })
   }
 
-  const editOpp = () => {
-    window.location.href = '/EditOpp'
+  const editOpp = postedOpps => {
+    window.location.href = `/EditOpp/${postedOpps.id}`
   }
 
   return (
