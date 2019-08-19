@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 // import PostedOpps from '../components/PostedOppsContainer'
 import axios from 'axios'
 
@@ -15,6 +15,17 @@ export default function EditOpp(props) {
   const [schoolAddress, setSchoolAddress] = useState('')
   const [schoolDistrict, setSchoolDistrict] = useState('')
 
+  useEffect(() => {
+    axios
+      .get(`/api/VolunteerOpps/${props.match.params.postedOpps.id}`, {
+        headers: { Authorization: 'Bearer ' + localStorage.getItem('token') }
+      })
+      .then(resp => {
+        console.log(resp.data)
+        setResults(resp.data)
+      })
+  }, [])
+
   const editOpp = e => {
     e.preventDefault()
     axios
@@ -30,7 +41,7 @@ export default function EditOpp(props) {
   return (
     <div className="home-section">
       <section className="rep-home-search">
-        <h1>Update Selected Opportunity</h1>
+        <h1 className="display">Update Selected Opportunity</h1>
         <form className="post-opp-form" onSubmit={editOpp}>
           <input
             className="zip-input"
