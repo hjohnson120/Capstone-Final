@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
 export default function EditOpp(props) {
-  const [results, setResults] = useState([])
   const [zipCode, setZipCode] = useState('')
   const [schoolName, setSchoolName] = useState('')
   const [department, setDepartment] = useState('')
@@ -22,7 +21,6 @@ export default function EditOpp(props) {
       })
       .then(resp => {
         console.log(resp.data)
-        setResults(resp.data)
       })
   }, [])
 
@@ -34,7 +32,6 @@ export default function EditOpp(props) {
       })
       .then(resp => {
         console.log(resp.data)
-        setResults(resp.data)
       })
   }
 
@@ -50,6 +47,7 @@ export default function EditOpp(props) {
             onChange={e => setSchoolName(e.target.value)}
             placeholder="School Name"
           />
+
           <input
             className="zip-input"
             name="department"
