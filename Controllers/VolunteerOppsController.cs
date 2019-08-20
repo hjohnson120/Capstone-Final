@@ -31,9 +31,9 @@ namespace sdg_react_template.Controllers
       return await _context.VolunteerOpp.Include(i => i.User).Where(w => w.UserId == currentUser.Id).ToListAsync();
     }
 
-    // GET: api/VolunteerOpps/5
-    [HttpGet("{zipCode}")]
-    public async Task<ActionResult<List<VolunteerOpps>>> GetVolunteerOpps([FromRoute] string zipCode)
+    // GET: api/VolunteerOpps/zipcode/
+    [HttpGet("zipcode/{zipCode}")]
+    public async Task<ActionResult<List<VolunteerOpps>>> GetVolunteerOpps([FromRoute]string zipCode)
     {
       var zipCodes = new List<string>();
       var API_KEY = "d2agPQXravzyLsnJX9uY6BPNlGBG7ReJprqtYtDYdXJkdpTsd2I9R5EL6fv0re2S";
@@ -63,6 +63,21 @@ namespace sdg_react_template.Controllers
 
       }
     }
+
+    //Get: api/VolunteerOpps/5
+    [HttpGet("opp/{id}")]
+    public async Task<ActionResult<VolunteerOpps>> GetVolunteerOpps(int id)
+    {
+      var volunteerOpps = await _context.VolunteerOpp.FindAsync(id);
+
+      if (volunteerOpps == null)
+      {
+        return NotFound();
+      }
+
+      return volunteerOpps;
+    }
+
 
     // PUT: api/VolunteerOpps/5
     [HttpPut("{id}")]

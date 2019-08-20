@@ -9,7 +9,7 @@ export default function Results(props) {
 
   useEffect(() => {
     axios
-      .get('/api/VolunteerOpps/' + props.match.params.zipCode, {
+      .get('/api/VolunteerOpps/zipcode/' + props.match.params.zipCode, {
         headers: { Authorization: 'Bearer ' + localStorage.getItem('token') }
       })
       .then(resp => {

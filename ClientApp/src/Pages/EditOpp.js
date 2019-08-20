@@ -16,11 +16,21 @@ export default function EditOpp(props) {
 
   useEffect(() => {
     axios
-      .get(`/api/VolunteerOpps/${props.match.params.postedOpps.id}`, {
+      .get(`/api/VolunteerOpps/opp/${props.match.params.postedOpps}`, {
         headers: { Authorization: 'Bearer ' + localStorage.getItem('token') }
       })
       .then(resp => {
         console.log(resp.data)
+        setZipCode(resp.data.zipCode)
+        setSchoolName(resp.data.schoolName)
+        setDepartment(resp.data.department)
+        setDate(resp.data.date)
+        setTimeSlot(resp.data.timeSlot)
+        setLongDescription(resp.data.longDescription)
+        setShortDescription(resp.data.shortDescription)
+        setSchoolDistrict(resp.data.schoolDistrict)
+        setPeopleNeeded(resp.data.peopleNeeded)
+        setSchoolAddress(resp.data.schoolAddress)
       })
   }, [])
 
